@@ -1,0 +1,88 @@
+﻿@model TheaterBooking.Models.Movie
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie_Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie_Poster)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie_Poster)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_End)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_End)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration_Hour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration_Hour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration_Minute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration_Minute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating.Rating_Symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating.Rating_Symbol)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

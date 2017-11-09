@@ -1,0 +1,42 @@
+﻿@model TheaterBooking.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking.Booking_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking.Booking_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price.Price_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price.Price_Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Showtime.Showtime_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Showtime.Showtime_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Ticket_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
