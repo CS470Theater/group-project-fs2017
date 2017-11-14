@@ -1,0 +1,160 @@
+html {
+    
+    width: 100%;
+	height: 100%;
+	margin: 0 0 0 0;
+	overflow: hidden;
+	
+}
+
+body {
+    
+    font-family: "Open Sans", Arial;
+    width: 100%;
+    height: 100%;
+	margin: 0 auto;
+	color: white;
+    background-color: #1F1F1F;
+	overflow: hidden;
+	
+}
+
+#topBanner {
+    
+    width: 100%;
+    display: flex;
+	align-items: center;
+    background-color: #2E2E2E;
+    
+}
+
+#topBannerInner {
+    
+    font-family: "Roboto Slab";
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 8%;
+    
+}
+
+#wrapper {
+    
+    width: 100%;
+    height: 100%;
+    margin-top: 75px;
+    display: flex;
+	justify-content: center;
+    
+}
+
+#mainContent {
+    
+    width: 800px;
+    height: 500px;
+    
+}
+
+.movieEntry {
+    
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #2E2E2E;
+    
+}
+
+.movieEntryInner {
+    
+    margin: 10px;
+    display: flex;
+	flex-direction: row;
+    
+}
+
+.movieEntryImage {
+    
+    display: block;
+    height: 315px;
+    
+}
+
+.movieEntryContentInner {
+    
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 10px;
+    
+}
+
+.movieEntryTitle {
+    
+    font-family: "Roboto Slab";
+    line-height: 22px;
+    font-size: 32px;
+    margin-bottom: 10px;
+    
+}
+
+.movieEntryUnderTitle, .movieEntryPlot {
+    
+    margin-bottom: 20px;
+    
+}
+
+.movieEntryTime {
+    
+    display: inline-block;
+    padding: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #FF9500;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
