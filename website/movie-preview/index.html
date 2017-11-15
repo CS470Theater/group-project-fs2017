@@ -4,7 +4,11 @@
 
 <head>
 	
-	<title>home</title>
+	<title>movie preview</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script src="main.js"></script>
     
 	<link rel="stylesheet" href="style.css">
     
@@ -16,26 +20,74 @@
 
 <body>
     
+    <div id="topBanner">
+        <div id="topBannerInner">instant<span style="color:#FF9500;font-weight:bold;">box</span>office</div>
+    </div>
+    
+    <div id="posterImageBanner">
+        <img src="assets/rogueone.jpg">
+    </div>
+    
     <div id="wrapper">
         
-        <div id="loginBox">
+        <div id="mainContent">
             
-            <div id="loginBoxHeader">login to book movie tickets</div>
+            <img id="posterImage" src="assets/rogueone.jpg">
             
-            <div id="loginBoxContent">
-                
-                <div class="loginBoxTextField">
-                    <input class="loginBoxInput" type="text" autocomplete="off" required>
-                    <label class="loginBoxInputLabel">username</label>
+            <div id="movieInfo">
+                <div id="movieInfoInner">
+                    
+                    
+                    <div id="movieInfoTitle">Rogue One</div>
+                    <div id="movieInfoUnderTitle">PG-13 | 2h 13min | Action, Adventure, Sci-Fi</div>
+                    <div id="movieInfoPlot">All looks lost for the Rebellion against the Empire as they learn of the existence of a new super weapon, the Death Star. Once a possible weakness in its construction is uncovered, the Rebel Alliance must set out on a desperate mission to steal the plans for the Death Star. The future of the entire galaxy now rests upon its success.</div>
+                    <div id="movieInfoTrailerButton">WATCH TRAILER</div>
+                    
+                    
+                    <br>
+                    <div class="popupDropdown popupDropdownDays">
+                        <div class="popupDropdownRoot">
+                            <div class="popupDropdownText">select day</div>
+                            <img class="popupDropdownArrow" src="assets/down.svg">
+                        </div>
+                        <div class="popupDropdownElements">
+                            <div class="popupDropdownElementsInner">
+                                <div class="popupDropdownElement popupDropdownElementDay">Sunday, November 12</div>
+                                <div class="popupDropdownElement popupDropdownElementDay">Monday, November 13</div>
+                                <div class="popupDropdownElement popupDropdownElementDay">Tuesday, November 14</div>
+                                <div class="popupDropdownElement popupDropdownElementDay">Wednesday, November 15</div>
+                                <div class="popupDropdownElement popupDropdownElementDay">Thursday, November 16</div>
+                                <div class="popupDropdownElement popupDropdownElementDay">Friday, November 17</div>
+                                <div class="popupDropdownElement popupDropdownElementDay">Saturday, November 18</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <br>
+                    <div class="popupDropdown popupDropdownTimes">
+                        <div class="popupDropdownRoot">
+                            <div class="popupDropdownText">select time</div>
+                            <img class="popupDropdownArrow" src="assets/down.svg">
+                        </div>
+                        <div class="popupDropdownElements">
+                            <div class="popupDropdownElementsInner">
+                                <div class="popupDropdownElement popupDropdownElementTime">1:00pm</div>
+                                <div class="popupDropdownElement popupDropdownElementTime">3:30pm</div>
+                                <div class="popupDropdownElement popupDropdownElementTime">5:00pm</div>
+                                <div class="popupDropdownElement popupDropdownElementTime">5:30pm</div>
+                                <div class="popupDropdownElement popupDropdownElementTime">7:00pm</div>
+                                <div class="popupDropdownElement popupDropdownElementTime">8:30pm</div>
+                                <div class="popupDropdownElement popupDropdownElementTime">10:00pm</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <div id="movieInfoBookButton">BOOK NOW</div>
+                    
+                    
                 </div>
-                
-                <div class="loginBoxTextField" style="margin-top:40px">
-                    <input class="loginBoxInput" type="password" autocomplete="off" required>
-                    <label class="loginBoxInputLabel">password</label>
-                </div>
-                
-                <div id="loginButton">LOGIN</div>
-                
             </div>
             
         </div>
