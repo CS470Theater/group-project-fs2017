@@ -44,7 +44,7 @@ body {
     -o-transition: opacity 0.35s;
     transition: opacity 0.35s;
     
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.6);
     
 }
 
@@ -55,7 +55,7 @@ body {
     top: 5vh;
     right: calc(5vw - 30px);
     padding: 10px;
-    cursor: pointer;
+    cursor: auto;
     
     -moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
