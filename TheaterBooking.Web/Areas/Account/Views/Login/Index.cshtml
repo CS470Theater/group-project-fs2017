@@ -1,0 +1,50 @@
+﻿@using Microsoft.Owin.Security
+@model TheaterBooking.Web.Areas.Account.Models.LoginViewModel
+@{
+    PageData["Title"] = "Login";
+}
+
+
+<div id="wrapper">
+        
+    <div id="loginBox">
+            
+        <div id="loginBoxHeader">login to book movie tickets</div>
+            
+        <div id="loginBoxContent">
+                
+            @using (Html.BeginForm("ExternalLogin", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "Please correct the following error(s)", new { @class = "w3-pale-yellow w3-border w3-border-yellow w3-padding w3-section" })
+                @Html.HiddenFor(m => m.Salt)
+                @Html.HiddenFor(m => m.RedirectUri)
+
+                foreach (var provider in Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes())
+                {
+                    string buttonClass;
+                    string iconClass;
+                    switch (provider.Caption)
+                    {
+                        case "Google":
+                            buttonClass = "btn-google";
+                            iconClass = "google";
+                            break;
+                        default:
+                            buttonClass = "w3-grey";
+                            iconClass = provider.Caption.ToLower();
+                            break;
+                    }
+
+                    <button type="submit" id="loginButton" class="@buttonClass" name="provider"
+                            value="@provider.AuthenticationType" title="Sign in using your @provider.Caption account">
+                        <i class="fa fa-@iconClass fa-fw"></i> Sign in with @provider.Caption
+                    </button>
+                }
+            }
+        </div>
+            
+    </div>
+        
+</div>
+

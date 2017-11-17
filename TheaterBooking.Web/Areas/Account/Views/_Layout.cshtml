@@ -1,0 +1,18 @@
+﻿@using System.Web.Optimization
+@using MvcSiteMapProvider.Web.Html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(PageData["Title"] ?? Html.MvcSiteMap().SiteMap.CurrentNode?.Title) - @Html.MvcSiteMap().SiteMap.RootNode.Title</title>
+    @Styles.Render("~/Content/css")
+    @if (BundleTable.Bundles.GetBundleFor($"~/Content/less-{ViewContext.RouteData.DataTokens["area"]}") != null)
+    {
+        @Styles.Render($"~/Content/less-{ViewContext.RouteData.DataTokens["area"]}")
+    }
+</head>
+<body class="w3-light-grey">
+    @RenderBody()
+</body>
+</html>

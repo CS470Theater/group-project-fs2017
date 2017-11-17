@@ -1,0 +1,30 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel
+
+@helper TitleHelper()
+{
+    @Model.Title
+    if (Model.IsCurrentNode)
+    {
+        <span class="sr-only">(current)</span>
+    }
+}
+
+@if (Model.IsCurrentNode && (Model.SourceMetadata["HtmlHelper"].ToString() != "MvcSiteMapProvider.Web.Html.MenuHelper"))
+{
+    @TitleHelper()
+}
+else if (Model.IsClickable)
+{
+    if (string.IsNullOrEmpty(Model.Description))
+    {
+        <a href="@Model.Url" class="w3-bar-item w3-button"><i class="@(Model.Attributes.ContainsKey("icon-class") ? Model.Attributes["icon-class"]?.ToString() : "")" aria-hidden="true"></i> <span>@TitleHelper()</span></a>
+    }
+    else
+    {
+        <a href="@Model.Url" class="w3-bar-item w3-button" title="@Model.Description"><i class="@(Model.Attributes.ContainsKey("icon-class") ? Model.Attributes["icon-class"]?.ToString() : "")" aria-hidden="true"></i> <span>@TitleHelper()</span></a>
+    }
+}
+else
+{
+    @TitleHelper()
+}

@@ -1,0 +1,19 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.MenuHelperModel
+
+@foreach (var node in Model.Nodes)
+{
+    <div class="@(node.Children?.Count > 0 ? "nav-parent-expanded":"") @(node.IsCurrentNode ? " w3-green" : "")">
+        @Html.DisplayFor(m => node)
+
+        @if (node.IsInCurrentPath)
+        {
+            foreach (var child in node.Children)
+            {
+                <div class="@(child.IsCurrentNode ? "w3-red nav-child-expanded" : "w3-light-grey nav-child-expanded")">
+                    @Html.DisplayFor(m => child)
+                </div>
+            }
+        }
+
+    </div>
+}

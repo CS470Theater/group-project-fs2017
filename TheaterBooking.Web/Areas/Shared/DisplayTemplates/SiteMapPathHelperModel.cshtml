@@ -1,0 +1,10 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapPathHelperModel
+
+<ol class="breadcrumb">
+    @foreach (var node in Model)
+    {
+        <li class="@(node.IsCurrentNode ? "active" : "")">
+            @Html.DisplayFor(m => node)
+        </li>
+    }
+</ol>

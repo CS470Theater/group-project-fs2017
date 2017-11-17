@@ -1,0 +1,46 @@
+﻿@using System.Collections
+@model TheaterBooking.Web.Areas.Error.Models.ErrorModel
+@{
+    Layout = "~/Areas/Shared/_Layout.cshtml";
+}
+
+@RenderBody()
+@if (Model != null)
+{
+    <p>
+        <div class="w3-container w3-pale-yellow w3-border w3-border-yellow w3-padding-16">
+            <b>Information for Support:</b><br/>
+            ErrorId: @Model.ErrorId
+        </div>
+        @if (User.IsInRole("web.admin.view") || Request.IsLocal && Request.IsAuthenticated)
+        {
+            var exception = Model.Exception;
+            <div class="w3-margin-top w3-pale-yellow w3-border w3-border-yellow">
+                <span class="w3-tag w3-large w3-yellow w3-margin-bottom">Admin Technical Info</span>
+                @while (exception != null)
+                {
+                    <div class="w3-topbar w3-border-yellow">
+                        <span class="w3-tag">@exception.GetType().FullName</span> @exception.Message
+                    </div>
+                    if (exception.Data.Count > 0)
+                    {
+                        <div class="w3-border-bottom w3-border-yellow">
+                            @foreach (var entry in exception.Data)
+                            {
+                                var data = (DictionaryEntry) entry;
+                                <div>
+                                    <span class="w3-tag w3-yellow">@data.Key</span>
+                                    <span class="data-value-wrap">@data.Value</span>
+                                </div>
+                            }
+                        </div>
+                    }
+                    <div>
+                        <pre class="w3-container w3-small">@exception</pre>
+                    </div>
+                    exception = exception.InnerException;
+                }
+            </div>
+        }
+    </p>
+}

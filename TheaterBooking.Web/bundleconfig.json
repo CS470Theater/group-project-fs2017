@@ -1,0 +1,134 @@
+[
+  {
+    "outputFileName": "Scripts/theme.min.js",
+    "inputFiles": [
+      "Scripts/theme.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/theme.init.min.js",
+    "inputFiles": [
+      "Scripts/theme.init.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/theme.custom.min.js",
+    "inputFiles": [
+      "Scripts/theme.custom.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sitewide.min.js",
+    "inputFiles": [
+      "Scripts/sitewide.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/nanoscroller.min.js",
+    "inputFiles": [
+      "Scripts/nanoscroller.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/morris.min.js",
+    "inputFiles": [
+      "Scripts/morris.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/modernizr.min.js",
+    "inputFiles": [
+      "Scripts/modernizr.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.magnific-popup.min.js",
+    "inputFiles": [
+      "Scripts/jquery.magnific-popup.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery-ui.min.js",
+    "inputFiles": [
+      "Scripts/jquery-ui.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery-placeholder.min.js",
+    "inputFiles": [
+      "Scripts/jquery-placeholder.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery-appear.min.js",
+    "inputFiles": [
+      "Scripts/jquery-appear.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/bootstrap-multiselect.min.js",
+    "inputFiles": [
+      "Scripts/bootstrap-multiselect.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/bootstrap-datepicker.min.js",
+    "inputFiles": [
+      "Scripts/bootstrap-datepicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/magnific-popup.min.css",
+    "inputFiles": [
+      "Content/magnific-popup.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/theme.min.css",
+    "inputFiles": [
+      "Content/theme.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/jquery-ui.theme.min.css",
+    "inputFiles": [
+      "Content/jquery-ui.theme.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/jquery-ui.min.css",
+    "inputFiles": [
+      "Content/jquery-ui.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/font-awesome.min.css",
+    "inputFiles": [
+      "Content/font-awesome.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/default.min.css",
+    "inputFiles": [
+      "Content/default.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/bootstrap.min.css",
+    "inputFiles": [
+      "Content/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/bootstrap-theme.min.css",
+    "inputFiles": [
+      "Content/bootstrap-theme.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/bootstrap-datepicker3.min.css",
+    "inputFiles": [
+      "Content/bootstrap-datepicker3.css"
+    ]
+  }
+]

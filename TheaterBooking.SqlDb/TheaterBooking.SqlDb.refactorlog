@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="9926af6b-a8b9-4081-a23f-e81468909445" ChangeDateTime="09/28/2016 22:10:52">
+    <Property Name="ElementName" Value="[dbo].[Account].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Account]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AccountId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bcec50b2-96e7-4c47-934e-bee1edd04364" ChangeDateTime="10/14/2016 22:03:35">
+    <Property Name="ElementName" Value="[core].[AccessToken].[UserAccountId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[core].[AccessToken]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PlaidAccountId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a0942c85-7a76-4926-9d56-ca4ee7bd31f5" ChangeDateTime="10/14/2016 22:03:47">
+    <Property Name="ElementName" Value="[core].[UserAccount].[UserAccountId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[core].[UserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PlaidAccountId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="37e726d6-2096-47c5-8d31-3a3d5e0a8faa" ChangeDateTime="10/14/2016 22:04:07">
+    <Property Name="ElementName" Value="[core].[FK_AccessToken_UserAccount]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[core].[AccessToken]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_AccessToken_PlaidAccount]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="75b9de5f-856e-4280-8995-4564a77db6b1" ChangeDateTime="10/14/2016 22:04:19">
+    <Property Name="ElementName" Value="[core].[UserAccount].[IX_UserAccount_PublicToken]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[core].[UserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_PlaidAccount_PublicToken]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="cefe70bf-54ef-4b37-95f0-454364076a3b" ChangeDateTime="10/14/2016 22:04:24">
+    <Property Name="ElementName" Value="[core].[FK_UserAccount_AspNetUsers]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[core].[UserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_PlaidAccount_AspNetUsers]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="725919e7-65c3-4739-9561-9043d215447e" ChangeDateTime="10/14/2016 22:04:30">
+    <Property Name="ElementName" Value="[core].[PK_UserAccount]" />
+    <Property Name="ElementType" Value="SqlPrimaryKeyConstraint" />
+    <Property Name="ParentElementName" Value="[core].[UserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[PK_PlaidAccount]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1be9caaf-258a-4b78-95eb-24f49709a682" ChangeDateTime="10/14/2016 22:04:38">
+    <Property Name="ElementName" Value="[core].[UserAccount]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[core]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[PlaidAccount]" />
+  </Operation>
+</Operations>

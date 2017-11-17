@@ -1,0 +1,59 @@
+﻿@using System.Security.Claims
+@using System.Web.Optimization
+@using MvcSiteMapProvider.Web.Html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(PageData["Title"] ?? Html.MvcSiteMap().SiteMap.CurrentNode?.Title) - @Html.MvcSiteMap().SiteMap.RootNode.Title</title>
+    @Styles.Render("~/Content/css")
+    @if (BundleTable.Bundles.GetBundleFor($"~/Content/less-{ViewContext.RouteData.DataTokens["area"]}") != null)
+    {
+        @Styles.Render($"~/Content/less-{ViewContext.RouteData.DataTokens["area"]}")
+    }
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
+</head>
+
+<body>
+<div id="topBanner">
+    <div id="topBannerInner">instant<span class="topBannerEmphasis">box</span>office</div>
+</div>
+
+    <nav>
+        @(((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.GivenName)?.Value ?? "unknown user")
+        @using (Html.BeginForm("Index", "Logout", new { area = "Account" }, FormMethod.Post, new { id = "logout_form", @class = "navbar-form navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+            <button type="submit" class="w3-bar-item w3-button" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
+        }
+
+        @Html.MvcSiteMap().Menu(Html.MvcSiteMap().SiteMap.RootNode, true, false, 2, true)
+    </nav>
+
+    @RenderBody()
+
+    @* ReSharper disable once OtherTagsInsideScript1 *@
+    @RenderSection("bodyScripts", false)
+    @Scripts.Render("~/Content/scripts")
+    @if (BundleTable.Bundles.GetBundleFor($"~/Content/js-{ViewContext.RouteData.DataTokens["area"]}") != null)
+    {
+        @Scripts.Render($"~/Content/js-{ViewContext.RouteData.DataTokens["area"]}")
+    }
+
+@{
+    Context.Response.Headers.Add("Content-Security-Policy",
+        "default-src 'none'; " +
+        "connect-src 'self'; " +
+        "script-src 'self' " +
+        "'unsafe-inline'; " + // unsafe-inline is ignored by browsers supporting CSP2; this is for Edge support
+        // see https://www.w3.org/TR/CSP2/#directive-script-src
+        "style-src 'self' fonts.googleapis.com; " +
+        "font-src 'self' fonts.gstatic.com; " +
+        "form-action 'self'; " +
+        "img-src 'self';");
+}
+</body>
+</html>
