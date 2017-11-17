@@ -14,7 +14,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 
-namespace TheaterBooking.Core.Users.Claims
+namespace TheaterBooking.Web.Users.Claims
 {
     /// <summary>
     ///     Updates the claims on the current user when they're changed.

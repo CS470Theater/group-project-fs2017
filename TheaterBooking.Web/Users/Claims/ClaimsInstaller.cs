@@ -4,7 +4,7 @@ using Castle.Windsor;
 using JetBrains.Annotations;
 using Microsoft.AspNet.Identity;
 
-namespace TheaterBooking.Core.Users.Claims
+namespace TheaterBooking.Web.Users.Claims
 {
     /// <summary>
     ///     Installs a custom claims provider into the application

@@ -1,8 +1,8 @@
-﻿using JetBrains.Annotations;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using YamlDotNet.Serialization;
 
-namespace TheaterBooking.Core.Users.Permissions
+namespace TheaterBooking.Web.Users.Permissions
 {
     /// <summary>
     ///     Represents the permissions.yml file

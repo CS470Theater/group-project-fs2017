@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace TheaterBooking.Core.Users
+namespace TheaterBooking.Web.Users
 {
     /// <summary>
     ///     Represents a user and their profile

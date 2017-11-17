@@ -1,5 +1,4 @@
-﻿using TheaterBooking.Core.Users;
-using TheaterBooking.Web.Areas.Account.Models;
+﻿using TheaterBooking.Web.Areas.Account.Models;
 using Castle.Core.Logging;
 using JetBrains.Annotations;
 using Microsoft.AspNet.Identity;
@@ -13,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity.EntityFramework;
+using TheaterBooking.Web.Users;
 using TheaterBooking.Web.Utilities;
 
 namespace TheaterBooking.Web.Areas.Account.Controllers

@@ -1,5 +1,4 @@
-﻿using TheaterBooking.Core.Users;
-using TheaterBooking.Web;
+﻿using TheaterBooking.Web;
 using JetBrains.Annotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -15,6 +14,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Microsoft.Owin.Security;
+using TheaterBooking.Web.Users;
 
 [assembly: OwinStartup(typeof(OwinStartup))]
 

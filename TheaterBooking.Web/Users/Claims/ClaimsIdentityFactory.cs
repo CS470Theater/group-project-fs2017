@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
-using TheaterBooking.Core.Users.Permissions;
-using JetBrains.Annotations;
-using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using JetBrains.Annotations;
+using Microsoft.AspNet.Identity;
+using TheaterBooking.Web.Users.Permissions;
 
-namespace TheaterBooking.Core.Users.Claims
+namespace TheaterBooking.Web.Users.Claims
 {
     /// <summary>
     ///     Provides custom claims on the claims identity created for the current user

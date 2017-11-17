@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TheaterBooking.Web.Areas.Admin.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Movie_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Movie_Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Movie_Poster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_End)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration_Hour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration_Minute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating.Rating_Symbol)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Movie_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Movie_Desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Movie_Poster)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_End)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration_Hour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration_Minute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating.Rating_Symbol)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Movie_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Movie_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Movie_ID })
+        </td>
+    </tr>
+}
+
+</table>

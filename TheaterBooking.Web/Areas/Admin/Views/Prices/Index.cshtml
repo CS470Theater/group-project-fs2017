@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TheaterBooking.Web.Areas.Admin.Models.Price>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Price_Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price_Amount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price_Desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price_Amount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Price_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Price_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Price_ID })
+        </td>
+    </tr>
+}
+
+</table>

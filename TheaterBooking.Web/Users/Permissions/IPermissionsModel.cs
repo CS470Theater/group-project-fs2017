@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TheaterBooking.Core.Users.Permissions
+namespace TheaterBooking.Web.Users.Permissions
 {
     /// <summary>
     ///     Model for permissions

@@ -1,12 +1,12 @@
-﻿using JetBrains.Annotations;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web.Hosting;
+using JetBrains.Annotations;
 using YamlDotNet.Serialization;
 
-namespace TheaterBooking.Core.Users.Permissions
+namespace TheaterBooking.Web.Users.Permissions
 {
     /// <summary>
     ///     Provides a model for permissions

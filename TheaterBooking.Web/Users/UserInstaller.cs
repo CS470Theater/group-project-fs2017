@@ -1,13 +1,13 @@
-﻿using TheaterBooking.Core.Users.Roles;
+﻿using System.Data.Entity;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using JetBrains.Annotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity;
+using TheaterBooking.Web.Users.Roles;
 
-namespace TheaterBooking.Core.Users
+namespace TheaterBooking.Web.Users
 {
     /// <summary>
     ///     Installs ASP.NET identity management into the application

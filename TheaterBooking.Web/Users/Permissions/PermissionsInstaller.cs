@@ -3,7 +3,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using JetBrains.Annotations;
 
-namespace TheaterBooking.Core.Users.Permissions
+namespace TheaterBooking.Web.Users.Permissions
 {
     /// <summary>
     ///     Installs the permissions model into the application

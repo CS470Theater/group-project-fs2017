@@ -30,7 +30,7 @@ namespace TheaterBooking.Web.Areas.Account.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index()
         {
-            _authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie, "Google", "LinkedIn");
+            _authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie, "Google");
             return RedirectToRoute("Default");
         }
     }

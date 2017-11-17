@@ -1,0 +1,82 @@
+﻿@model TheaterBooking.Web.Areas.Admin.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie_Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie_Poster)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie_Poster)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_End)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_End)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration_Hour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration_Hour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration_Minute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration_Minute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating.Rating_Symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating.Rating_Symbol)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Movie_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
