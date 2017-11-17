@@ -598,10 +598,10 @@
   </Target>
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <PropertyGroup>
-    <PreBuildEvent>echo unknown &amp;gt; "$(ProjectDir)\Properties\version.txt"
+    <PreBuildEvent>echo unknown &gt; "$(ProjectDir)\Properties\version.txt"
 where git
 IF NOT ERRORLEVEL 1 (
-git describe --always --long &amp;gt; "$(ProjectDir)\Properties\version.txt"
+git describe --always --long &gt; "$(ProjectDir)\Properties\version.txt"
 )
 exit 0</PreBuildEvent>
   </PropertyGroup>
