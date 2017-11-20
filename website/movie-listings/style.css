@@ -42,7 +42,6 @@ body {
 #wrapper {
     
     position: relative;
-    margin-top: 75px;
     display: flex;
 	justify-content: center;
     
@@ -50,8 +49,9 @@ body {
 
 #mainContent {
     
-    width: 800px;
-    height: 500px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 1000px;
     
 }
 
