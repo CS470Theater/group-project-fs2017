@@ -16,14 +16,6 @@ body {
     overflow-y: auto;
 }
 
-#wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .topBannerEmphasis {
     color: #FF9500;
     font-weight: bold;
