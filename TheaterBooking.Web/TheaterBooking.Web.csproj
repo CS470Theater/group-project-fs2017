@@ -273,6 +273,7 @@
     <Compile Include="App_Start\LazyInstaller.cs" />
     <Compile Include="App_Start\Log4NetInstaller.cs" />
     <Compile Include="App_Start\OwinStartup.cs" />
+    <Compile Include="App_Start\SqlInstaller.cs" />
     <Compile Include="App_Start\ViewEngineInstaller.cs" />
     <Compile Include="App_Start\XsrfInstaller.cs" />
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
