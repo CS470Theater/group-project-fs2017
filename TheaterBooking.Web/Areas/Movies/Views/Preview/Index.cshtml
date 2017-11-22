@@ -1,7 +1,6 @@
-@model object
-
-
-
+@using System
+@using System.Linq
+@model TheaterBooking.Web.Areas.Admin.Models.Movie
 
 <div id="wrapper" class="preview">
     
@@ -17,9 +16,11 @@
             <div id="movieInfoInner">
 
 
-                <div id="movieInfoTitle">Rogue One</div>
-                <div id="movieInfoUnderTitle">PG-13 | 2h 13min | Action, Adventure, Sci-Fi</div>
-                <div id="movieInfoPlot">All looks lost for the Rebellion against the Empire as they learn of the existence of a new super weapon, the Death Star. Once a possible weakness in its construction is uncovered, the Rebel Alliance must set out on a desperate mission to steal the plans for the Death Star. The future of the entire galaxy now rests upon its success.</div>
+                <div id="movieInfoTitle">@Model.Movie_Name</div>
+                <div id="movieInfoUnderTitle">@Model.Rating.Rating_Symbol |
+                    @(Model.Duration_Hour)h @(Model.Duration_Minute)min |
+                    @string.Join(", ", Model.Genres.Select(genre => genre.Genre_Name))</div>
+                <div id="movieInfoPlot">@Model.Movie_Desc</div>
                 <div id="movieInfoTrailerButton">WATCH TRAILER</div>
 
 
@@ -31,13 +32,10 @@
                     </div>
                     <div class="popupDropdownElements">
                         <div class="popupDropdownElementsInner">
-                            <div class="popupDropdownElement popupDropdownElementDay">Sunday, November 12</div>
-                            <div class="popupDropdownElement popupDropdownElementDay">Monday, November 13</div>
-                            <div class="popupDropdownElement popupDropdownElementDay">Tuesday, November 14</div>
-                            <div class="popupDropdownElement popupDropdownElementDay">Wednesday, November 15</div>
-                            <div class="popupDropdownElement popupDropdownElementDay">Thursday, November 16</div>
-                            <div class="popupDropdownElement popupDropdownElementDay">Friday, November 17</div>
-                            <div class="popupDropdownElement popupDropdownElementDay">Saturday, November 18</div>
+                            @foreach (var date in Model.Showtimes.Select(day => day.Show_Date.Date).Distinct())
+                            {
+                                <div class="popupDropdownElement popupDropdownElementDay">@date.ToLongDateString()</div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -51,24 +49,17 @@
                     </div>
                     <div class="popupDropdownElements">
                         <div class="popupDropdownElementsInner">
-                            <div class="popupDropdownElement popupDropdownElementTime">1:00pm</div>
-                            <div class="popupDropdownElement popupDropdownElementTime">3:30pm</div>
-                            <div class="popupDropdownElement popupDropdownElementTime">5:00pm</div>
-                            <div class="popupDropdownElement popupDropdownElementTime">5:30pm</div>
-                            <div class="popupDropdownElement popupDropdownElementTime">7:00pm</div>
-                            <div class="popupDropdownElement popupDropdownElementTime">8:30pm</div>
-                            <div class="popupDropdownElement popupDropdownElementTime">10:00pm</div>
+                            @*TODO: REST API + dynamic jQuery stuff*@
+                            @foreach (var date in Model.Showtimes.Where(day => day.Show_Date.Date == DateTime.Now.Date))
+                            {
+                                <div class="popupDropdownElement popupDropdownElementTime">@date.Show_Date.ToShortTimeString()</div>
+                            }
                         </div>
                     </div>
                 </div>
-
                 <br>
                 <div id="movieInfoBookButton">BOOK NOW</div>
-
-
             </div>
         </div>
-
     </div>
-
 </div>
