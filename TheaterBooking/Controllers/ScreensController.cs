@@ -17,8 +17,8 @@ namespace TheaterBooking.Views
         // GET: Screens
         public ActionResult Index()
         {
-            var screens = db.Screens.Include(s => s.Theater);
-            return View(screens.ToList());
+            var screen = db.Screen.Include(s => s.Theater);
+            return View(screen.ToList());
         }
 
         // GET: Screens/Details/5
@@ -28,7 +28,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Screen screen = db.Screens.Find(id);
+            Screen screen = db.Screen.Find(id);
             if (screen == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace TheaterBooking.Views
         // GET: Screens/Create
         public ActionResult Create()
         {
-            ViewBag.Theater_ID = new SelectList(db.Theaters, "Theater_ID", "Theater_Name");
+            ViewBag.Theater_ID = new SelectList(db.Theater, "Theater_ID", "Theater_Name");
             return View();
         }
 
@@ -52,12 +52,12 @@ namespace TheaterBooking.Views
         {
             if (ModelState.IsValid)
             {
-                db.Screens.Add(screen);
+                db.Screen.Add(screen);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Theater_ID = new SelectList(db.Theaters, "Theater_ID", "Theater_Name", screen.Theater_ID);
+            ViewBag.Theater_ID = new SelectList(db.Theater, "Theater_ID", "Theater_Name", screen.Theater_ID);
             return View(screen);
         }
 
@@ -68,12 +68,12 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Screen screen = db.Screens.Find(id);
+            Screen screen = db.Screen.Find(id);
             if (screen == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Theater_ID = new SelectList(db.Theaters, "Theater_ID", "Theater_Name", screen.Theater_ID);
+            ViewBag.Theater_ID = new SelectList(db.Theater, "Theater_ID", "Theater_Name", screen.Theater_ID);
             return View(screen);
         }
 
@@ -90,7 +90,7 @@ namespace TheaterBooking.Views
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Theater_ID = new SelectList(db.Theaters, "Theater_ID", "Theater_Name", screen.Theater_ID);
+            ViewBag.Theater_ID = new SelectList(db.Theater, "Theater_ID", "Theater_Name", screen.Theater_ID);
             return View(screen);
         }
 
@@ -101,7 +101,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Screen screen = db.Screens.Find(id);
+            Screen screen = db.Screen.Find(id);
             if (screen == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace TheaterBooking.Views
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Screen screen = db.Screens.Find(id);
-            db.Screens.Remove(screen);
+            Screen screen = db.Screen.Find(id);
+            db.Screen.Remove(screen);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

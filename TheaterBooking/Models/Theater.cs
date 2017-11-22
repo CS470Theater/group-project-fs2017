@@ -17,7 +17,7 @@ namespace TheaterBooking.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Theater()
         {
-            this.Screens = new HashSet<Screen>();
+            this.Screen = new HashSet<Screen>();
         }
     
         public int Theater_ID { get; set; }
@@ -27,6 +27,6 @@ namespace TheaterBooking.Models
         public string Theater_Phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Screen> Screens { get; set; }
+        public virtual ICollection<Screen> Screen { get; set; }
     }
 }

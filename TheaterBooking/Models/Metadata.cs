@@ -8,8 +8,10 @@ namespace TheaterBooking.Models
     public class BookingMetadata
     {
         public int Booking_ID { get; set; }
-        public int Customer_ID { get; set; }
+        public string Customer_ID { get; set; }
         public System.DateTime Booking_Date { get; set; }
+        public decimal Total_Cost { get; set; }
+        public bool Payment_Type { get; set; }
     }
     public partial class Booking
     {
@@ -17,15 +19,22 @@ namespace TheaterBooking.Models
     }
 
 
-    public class CustomerMetadata
+    public class AspNetUsersMetadata
     {
-        public int Customer_ID { get; set; }
-        public string First_Name { get; set; }
-        public string Last_Name { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string Id { get; set; }
+        public string Email { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string PasswordHash { get; set; }
+        public string SecurityStamp { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool PhoneNumberConfirmed { get; set; }
+        public bool TwoFactorEnabled { get; set; }
+        public System.DateTime LockoutEndDateUtc { get; set; }
+        public bool LockoutEnabled { get; set; }
+        public int AccessFailedCount { get; set; }
+        public string UserName { get; set; }
     }
-    public partial class Customer
+    public partial class AspNetUsers
     {
 
     }
@@ -48,11 +57,12 @@ namespace TheaterBooking.Models
         public int Rating_ID { get; set; }
         public string Movie_Name { get; set; }
         public string Movie_Desc { get; set; }
-        public byte[] Movie_Poster { get; set; }
+        public string Movie_Poster_URL { get; set; }
         public System.DateTime Date_Start { get; set; }
         public System.DateTime Date_End { get; set; }
         public byte Duration_Hour { get; set; }
         public byte Duration_Minute { get; set; }
+        public string Movie_Trailer_URL { get; set; }
     }
     public partial class Movie
     {

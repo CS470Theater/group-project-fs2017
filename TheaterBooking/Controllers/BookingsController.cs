@@ -17,8 +17,8 @@ namespace TheaterBooking.Views
         // GET: Bookings
         public ActionResult Index()
         {
-            var bookings = db.Bookings.Include(b => b.Customer);
-            return View(bookings.ToList());
+            var booking = db.Booking.Include(b => b.AspNetUsers);
+            return View(booking.ToList());
         }
 
         // GET: Bookings/Details/5
@@ -28,7 +28,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
+            Booking booking = db.Booking.Find(id);
             if (booking == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace TheaterBooking.Views
         // GET: Bookings/Create
         public ActionResult Create()
         {
-            ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "First_Name");
+            ViewBag.Customer_ID = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -48,16 +48,16 @@ namespace TheaterBooking.Views
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Booking_ID,Customer_ID,Booking_Date")] Booking booking)
+        public ActionResult Create([Bind(Include = "Booking_ID,Customer_ID,Booking_Date,Total_Cost,Payment_Type")] Booking booking)
         {
             if (ModelState.IsValid)
             {
-                db.Bookings.Add(booking);
+                db.Booking.Add(booking);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "First_Name", booking.Customer_ID);
+            ViewBag.Customer_ID = new SelectList(db.AspNetUsers, "Id", "Email", booking.Customer_ID);
             return View(booking);
         }
 
@@ -68,12 +68,12 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
+            Booking booking = db.Booking.Find(id);
             if (booking == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "First_Name", booking.Customer_ID);
+            ViewBag.Customer_ID = new SelectList(db.AspNetUsers, "Id", "Email", booking.Customer_ID);
             return View(booking);
         }
 
@@ -82,7 +82,7 @@ namespace TheaterBooking.Views
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Booking_ID,Customer_ID,Booking_Date")] Booking booking)
+        public ActionResult Edit([Bind(Include = "Booking_ID,Customer_ID,Booking_Date,Total_Cost,Payment_Type")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace TheaterBooking.Views
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "First_Name", booking.Customer_ID);
+            ViewBag.Customer_ID = new SelectList(db.AspNetUsers, "Id", "Email", booking.Customer_ID);
             return View(booking);
         }
 
@@ -101,7 +101,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
+            Booking booking = db.Booking.Find(id);
             if (booking == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace TheaterBooking.Views
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Booking booking = db.Bookings.Find(id);
-            db.Bookings.Remove(booking);
+            Booking booking = db.Booking.Find(id);
+            db.Booking.Remove(booking);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

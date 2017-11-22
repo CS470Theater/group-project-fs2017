@@ -12,21 +12,28 @@ namespace TheaterBooking.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class AspNetUsers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public AspNetUsers()
         {
-            this.Bookings = new HashSet<Booking>();
+            this.Booking = new HashSet<Booking>();
         }
     
-        public int Customer_ID { get; set; }
-        public string First_Name { get; set; }
-        public string Last_Name { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string Id { get; set; }
+        public string Email { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string PasswordHash { get; set; }
+        public string SecurityStamp { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool PhoneNumberConfirmed { get; set; }
+        public bool TwoFactorEnabled { get; set; }
+        public System.DateTime LockoutEndDateUtc { get; set; }
+        public bool LockoutEnabled { get; set; }
+        public int AccessFailedCount { get; set; }
+        public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<Booking> Booking { get; set; }
     }
 }

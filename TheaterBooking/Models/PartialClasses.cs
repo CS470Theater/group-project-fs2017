@@ -12,8 +12,8 @@ namespace TheaterBooking.Models
     }
 
 
-    [MetadataType(typeof(CustomerMetadata))]
-    public partial class Customer
+    [MetadataType(typeof(AspNetUsersMetadata))]
+    public partial class AspNetUsers
     {
     }
 

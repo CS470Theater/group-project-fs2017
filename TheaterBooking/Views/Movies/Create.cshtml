@@ -40,10 +40,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Movie_Poster, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Movie_Poster_URL, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Movie_Poster, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Movie_Poster, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Movie_Poster_URL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie_Poster_URL, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -76,6 +76,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Duration_Minute, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Duration_Minute, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie_Trailer_URL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Movie_Trailer_URL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie_Trailer_URL, "", new { @class = "text-danger" })
             </div>
         </div>
 

@@ -17,13 +17,13 @@ namespace TheaterBooking.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rating()
         {
-            this.Movies = new HashSet<Movie>();
+            this.Movie = new HashSet<Movie>();
         }
     
         public int Rating_ID { get; set; }
         public string Rating_Symbol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Movie> Movies { get; set; }
+        public virtual ICollection<Movie> Movie { get; set; }
     }
 }

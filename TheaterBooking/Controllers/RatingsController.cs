@@ -17,7 +17,7 @@ namespace TheaterBooking.Views
         // GET: Ratings
         public ActionResult Index()
         {
-            return View(db.Ratings.ToList());
+            return View(db.Rating.ToList());
         }
 
         // GET: Ratings/Details/5
@@ -27,7 +27,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rating rating = db.Ratings.Find(id);
+            Rating rating = db.Rating.Find(id);
             if (rating == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace TheaterBooking.Views
         {
             if (ModelState.IsValid)
             {
-                db.Ratings.Add(rating);
+                db.Rating.Add(rating);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rating rating = db.Ratings.Find(id);
+            Rating rating = db.Rating.Find(id);
             if (rating == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rating rating = db.Ratings.Find(id);
+            Rating rating = db.Rating.Find(id);
             if (rating == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace TheaterBooking.Views
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Rating rating = db.Ratings.Find(id);
-            db.Ratings.Remove(rating);
+            Rating rating = db.Rating.Find(id);
+            db.Rating.Remove(rating);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

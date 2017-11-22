@@ -17,7 +17,7 @@ namespace TheaterBooking.Views
         // GET: Genres
         public ActionResult Index()
         {
-            return View(db.Genres.ToList());
+            return View(db.Genre.ToList());
         }
 
         // GET: Genres/Details/5
@@ -27,7 +27,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
+            Genre genre = db.Genre.Find(id);
             if (genre == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace TheaterBooking.Views
         {
             if (ModelState.IsValid)
             {
-                db.Genres.Add(genre);
+                db.Genre.Add(genre);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
+            Genre genre = db.Genre.Find(id);
             if (genre == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
+            Genre genre = db.Genre.Find(id);
             if (genre == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace TheaterBooking.Views
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Genre genre = db.Genres.Find(id);
-            db.Genres.Remove(genre);
+            Genre genre = db.Genre.Find(id);
+            db.Genre.Remove(genre);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

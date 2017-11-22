@@ -17,7 +17,7 @@ namespace TheaterBooking.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Price()
         {
-            this.Tickets = new HashSet<Ticket>();
+            this.Ticket = new HashSet<Ticket>();
         }
     
         public int Price_ID { get; set; }
@@ -25,6 +25,6 @@ namespace TheaterBooking.Models
         public decimal Price_Amount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Ticket> Ticket { get; set; }
     }
 }
