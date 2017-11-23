@@ -341,6 +341,7 @@
     <Content Include="Areas\Admin\Content\jquery.validate.unobtrusive.js" />
     <Content Include="Areas\Admin\Content\jquery.validate.unobtrusive.min.js" />
     <Content Include="Areas\Movies\Content\down.svg" />
+    <Content Include="Areas\Movies\Content\main.js" />
     <Content Include="Areas\Movies\Content\rogueone.jpg" />
     <Content Include="Areas\Movies\Content\x.svg" />
     <Content Include="Content\font-awesome.css" />

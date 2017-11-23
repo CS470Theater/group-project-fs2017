@@ -6,7 +6,7 @@
         @foreach (var movie in Model)
         {
             <div class="movieEntry">
-                <div class="movieEntryInner">
+                <a href="@Url.Action("Index", "Preview", new {movieId = movie.Movie_ID})" class="movieEntryInner">
                     <img class="movieEntryImage" src="@movie.Movie_Poster_URL">
                     <div class="movieEntryContent">
                         <div class="movieEntryContentInner">
@@ -23,7 +23,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         }
     </div>
