@@ -24,7 +24,8 @@ namespace TheaterBooking.Web.Database
         public DateTime Date_End { get; set; }
         public byte Duration_Hour { get; set; }
         public byte Duration_Minute { get; set; }
-    
+        public string Movie_Trailer_URL { get; set; }
+
         public virtual Rating Rating { get; set; }
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Showtime> Showtimes { get; set; }
