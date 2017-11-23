@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using TheaterBooking.Web.Areas.Admin.Models;
+using TheaterBooking.Web.Database;
 
 namespace TheaterBooking.Web.Areas.Movies.Controllers
 {
@@ -9,12 +9,12 @@ namespace TheaterBooking.Web.Areas.Movies.Controllers
     /// </summary>
     public class ListingController : Controller
     {
-        private readonly TheaterDBEntities _db;
+        private readonly TheaterDbEntities _db;
 
         /// <summary>
         ///     Instantiates a new listing controller with the specified database model
         /// </summary>
-        public ListingController(TheaterDBEntities db)
+        public ListingController(TheaterDbEntities db)
         {
             _db = db;
         }
@@ -26,7 +26,8 @@ namespace TheaterBooking.Web.Areas.Movies.Controllers
         [Authorize(Roles="web.home.view")]
         public ActionResult Index()
         {
-            return View(_db.Movies.Include(nameof(Movie.Rating))
+            return View(_db.Movies
+                .Include(nameof(Movie.Rating))
                 .Include(nameof(Movie.Genres))
                 .Include(nameof(Movie.Showtimes))
                 .ToList());

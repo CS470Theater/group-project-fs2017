@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using TheaterBooking.Web.Areas.Admin.Models;
+using TheaterBooking.Web.Database;
 
 namespace TheaterBooking.Web.Areas.Admin.Controllers
 {
     public class TicketsController : Controller
     {
-        private TheaterDBEntities db = new TheaterDBEntities();
+        private TheaterDbEntities db = new TheaterDbEntities();
 
         // GET: Tickets
         public ActionResult Index()

@@ -1,5 +1,5 @@
 @using System.Linq
-@model System.Collections.Generic.IList<TheaterBooking.Web.Areas.Admin.Models.Movie>
+@model System.Collections.Generic.IList<TheaterBooking.Web.Database.Movie>
 
 <div id="wrapper" class="listing">
     <div id="mainContent" class="listing">
@@ -7,7 +7,7 @@
         {
             <div class="movieEntry">
                 <div class="movieEntryInner">
-                    <img class="movieEntryImage" src="~/Areas/Movies/Content/rogueone.jpg">
+                    <img class="movieEntryImage" src="@movie.Movie_Poster_URL">
                     <div class="movieEntryContent">
                         <div class="movieEntryContentInner">
                             <div class="movieEntryTitle">@movie.Movie_Name</div>

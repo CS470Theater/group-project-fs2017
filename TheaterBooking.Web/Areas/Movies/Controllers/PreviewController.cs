@@ -1,10 +1,9 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TheaterBooking.Web.Areas.Admin.Models;
+using TheaterBooking.Web.Database;
 
 namespace TheaterBooking.Web.Areas.Movies.Controllers
 {
@@ -13,12 +12,12 @@ namespace TheaterBooking.Web.Areas.Movies.Controllers
     /// </summary>
     public class PreviewController : Controller
     {
-        private readonly TheaterDBEntities _db;
+        private readonly TheaterDbEntities _db;
 
         /// <summary>
         ///     Instantiates a new preview controller with the specified database model
         /// </summary>
-        public PreviewController(TheaterDBEntities db)
+        public PreviewController(TheaterDbEntities db)
         {
             _db = db;
         }

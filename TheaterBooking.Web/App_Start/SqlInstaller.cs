@@ -2,7 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using JetBrains.Annotations;
-using TheaterBooking.Web.Areas.Admin.Models;
+using TheaterBooking.Web.Database;
 
 namespace TheaterBooking.Web
 {
@@ -10,7 +10,7 @@ namespace TheaterBooking.Web
     {
         public void Install([NotNull] IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<TheaterDBEntities>().LifestyleTransient());
+            container.Register(Component.For<TheaterDbEntities>().LifestyleTransient());
         }
     }
 }

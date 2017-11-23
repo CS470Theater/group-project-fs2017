@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using TheaterBooking.Web.Areas.Admin.Models;
+using TheaterBooking.Web.Database;
 
 namespace TheaterBooking.Web.Areas.Admin.Controllers
 {
@@ -38,7 +38,7 @@ namespace TheaterBooking.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var db = new TheaterDBEntities();
+                var db = new TheaterDbEntities();
                 try
                 {
                     var user = (from userlist in db.Customers
