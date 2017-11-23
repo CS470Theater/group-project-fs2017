@@ -25,7 +25,7 @@ namespace TheaterBooking.Web.Areas.Admin.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<Booking> Booking { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<Movie> Movies { get; set; }

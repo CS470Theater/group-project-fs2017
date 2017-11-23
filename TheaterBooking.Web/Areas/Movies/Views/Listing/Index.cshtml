@@ -1,31 +1,30 @@
-@model object
+@using System.Linq
+@model System.Collections.Generic.IList<TheaterBooking.Web.Database.Movie>
 
 <div id="wrapper" class="listing">
-        
     <div id="mainContent" class="listing">
-            
-        <div class="movieEntry">
-            <div class="movieEntryInner">
-                <img class="movieEntryImage" src="~/Areas/Movies/Content/rogueone.jpg">
-                <div class="movieEntryContent">
-                    <div class="movieEntryContentInner">
-                        <div class="movieEntryTitle">Rogue One</div>
-                        <div class="movieEntryUnderTitle">PG-13 | 2h 13min | Action, Adventure, Sci-Fi</div>
-                        <div class="movieEntryPlot">All looks lost for the Rebellion against the Empire as they learn of the existence of a new super weapon, the Death Star. Once a possible weakness in its construction is uncovered, the Rebel Alliance must set out on a desperate mission to steal the plans for the Death Star. The future of the entire galaxy now rests upon its success.</div>
-                        <div class="movieEntryTimes">
-                            <div class="movieEntryTime">1:00pm</div>
-                            <div class="movieEntryTime">3:30pm</div>
-                            <div class="movieEntryTime">5:00pm</div>
-                            <div class="movieEntryTime">5:30pm</div>
-                            <div class="movieEntryTime">7:00pm</div>
-                            <div class="movieEntryTime">8:30pm</div>
-                            <div class="movieEntryTime">10:00pm</div>
+        @foreach (var movie in Model)
+        {
+            <div class="movieEntry">
+                <a href="@Url.Action("Index", "Preview", new {movieId = movie.Movie_ID})" class="movieEntryInner">
+                    <img class="movieEntryImage" src="@movie.Movie_Poster_URL">
+                    <div class="movieEntryContent">
+                        <div class="movieEntryContentInner">
+                            <div class="movieEntryTitle">@movie.Movie_Name</div>
+                            <div class="movieEntryUnderTitle">@movie.Rating.Rating_Symbol |
+                                @(movie.Duration_Hour)h @(movie.Duration_Minute)min |
+                            @string.Join(", ", movie.Genres.Select(genre => genre.Genre_Name))</div>
+                            <div class="movieEntryPlot">@movie.Movie_Desc</div>
+                            <div class="movieEntryTimes">
+                                @foreach (var time in movie.Showtimes)
+                                {
+                                    <div class="movieEntryTime">@time.Show_Date.ToString("hh:mm tt")</div>
+                                }
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
-            
+        }
     </div>
-        
 </div>

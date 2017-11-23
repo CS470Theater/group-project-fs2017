@@ -273,6 +273,7 @@
     <Compile Include="App_Start\LazyInstaller.cs" />
     <Compile Include="App_Start\Log4NetInstaller.cs" />
     <Compile Include="App_Start\OwinStartup.cs" />
+    <Compile Include="App_Start\SqlInstaller.cs" />
     <Compile Include="App_Start\ViewEngineInstaller.cs" />
     <Compile Include="App_Start\XsrfInstaller.cs" />
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
@@ -283,10 +284,7 @@
     <Compile Include="Areas\Account\Models\LoginViewModel.cs" />
     <Compile Include="Areas\Account\Models\RegistrationViewModel.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\BookingsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Admin\Controllers\GenresController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PricesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RatingsController.cs" />
@@ -294,54 +292,7 @@
     <Compile Include="Areas\Admin\Controllers\ShowtimesController.cs" />
     <Compile Include="Areas\Admin\Controllers\TheatersController.cs" />
     <Compile Include="Areas\Admin\Controllers\TicketsController.cs" />
-    <Compile Include="Areas\Admin\Models\Booking.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\Customer.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\Genre.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
-    <Compile Include="Areas\Admin\Models\Metadata.cs" />
-    <Compile Include="Areas\Admin\Models\Movie.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\PartialClasses.cs" />
-    <Compile Include="Areas\Admin\Models\Price.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\Rating.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\Screen.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\Showtime.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\Theater.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\TheaterDB.Context.cs">
-      <DependentUpon>TheaterDB.Context.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\TheaterDB.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\TheaterDB.Designer.cs">
-      <DependentUpon>TheaterDB.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Areas\Admin\Models\Ticket.cs">
-      <DependentUpon>TheaterDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Areas\Error\Controllers\ErrorAttribute.cs" />
     <Compile Include="Areas\Error\ErrorAreaRegistration.cs" />
     <Compile Include="Areas\Error\Models\ErrorModel.cs" />
@@ -349,6 +300,16 @@
     <Compile Include="Areas\Movies\Controllers\ListingController.cs" />
     <Compile Include="Areas\Movies\Controllers\PreviewController.cs" />
     <Compile Include="Areas\Movies\MoviesAreaRegistration.cs" />
+    <Compile Include="Database\Booking.cs" />
+    <Compile Include="Database\Genre.cs" />
+    <Compile Include="Database\Movie.cs" />
+    <Compile Include="Database\Price.cs" />
+    <Compile Include="Database\Rating.cs" />
+    <Compile Include="Database\Screen.cs" />
+    <Compile Include="Database\Showtime.cs" />
+    <Compile Include="Database\Theater.cs" />
+    <Compile Include="Database\TheaterDbEntities.cs" />
+    <Compile Include="Database\Ticket.cs" />
     <Compile Include="Users\Claims\ClaimsIdentityFactory.cs" />
     <Compile Include="Users\Claims\ClaimsInstaller.cs" />
     <Compile Include="Users\Claims\ClaimsSynchronizer.cs" />
@@ -379,18 +340,8 @@
     <Content Include="Areas\Admin\Content\jquery.validate.min.js" />
     <Content Include="Areas\Admin\Content\jquery.validate.unobtrusive.js" />
     <Content Include="Areas\Admin\Content\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Areas\Admin\Models\TheaterDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TheaterDB.edmx</DependentUpon>
-      <LastGenOutput>TheaterDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Admin\Models\TheaterDB.edmx.sql" />
-    <Content Include="Areas\Admin\Models\TheaterDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TheaterDB.edmx</DependentUpon>
-      <LastGenOutput>TheaterDB.cs</LastGenOutput>
-    </Content>
     <Content Include="Areas\Movies\Content\down.svg" />
+    <Content Include="Areas\Movies\Content\main.js" />
     <Content Include="Areas\Movies\Content\rogueone.jpg" />
     <Content Include="Areas\Movies\Content\x.svg" />
     <Content Include="Content\font-awesome.css" />
@@ -422,13 +373,6 @@
     <Content Include="Areas\Movies\Views\Listing\Index.cshtml" />
     <Content Include="Areas\Movies\Content\listing.less" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <EntityDeploy Include="Areas\Admin\Models\TheaterDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TheaterDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Areas\Admin\Models\TheaterDB.edmx.diagram">
-      <DependentUpon>TheaterDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Bookings\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Bookings\Delete.cshtml" />

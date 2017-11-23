@@ -6,12 +6,10 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using System;
-using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity.EntityFramework;
 using TheaterBooking.Web.Users;
 using TheaterBooking.Web.Utilities;
 
