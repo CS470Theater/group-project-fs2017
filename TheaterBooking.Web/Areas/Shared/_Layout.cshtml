@@ -1,4 +1,4 @@
-﻿@using System.Security.Claims
+@using System.Security.Claims
 @using System.Web.Optimization
 @using MvcSiteMapProvider.Web.Html
 
@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@(PageData["Title"] ?? Html.MvcSiteMap().SiteMap.CurrentNode?.Title) - @Html.MvcSiteMap().SiteMap.RootNode.Title</title>
     @Styles.Render("~/Content/css")
     @if (BundleTable.Bundles.GetBundleFor($"~/Content/less-{ViewContext.RouteData.DataTokens["area"]}") != null)
@@ -52,6 +52,7 @@
         // see https://www.w3.org/TR/CSP2/#directive-script-src
         "style-src 'self' fonts.googleapis.com; " +
         "font-src 'self' fonts.gstatic.com; " +
+        "frame-src www.youtube.com; " +
         "form-action 'self'; " +
         "img-src 'self' image.ibb.co;");
 }

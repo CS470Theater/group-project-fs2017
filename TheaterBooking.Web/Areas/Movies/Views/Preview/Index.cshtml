@@ -3,6 +3,11 @@
 @using TheaterBooking.Web.Database
 @model TheaterBooking.Web.Database.Movie
 
+<div id="youtubeVideoWrapper">
+    <img id="youtubeVideoX" src="~/Areas/Movies/Content/x.svg">
+    <iframe id="youtubeVideo" src="@Model.Movie_Trailer_URL" frameborder="0" allowfullscreen></iframe>
+</div>
+
 <div id="wrapper" class="preview">
     
     <div id="posterImageBanner">
@@ -22,7 +27,7 @@
                     @(Model.Duration_Hour)h @(Model.Duration_Minute)min |
                     @string.Join(", ", Model.Genres.Select(genre => genre.Genre_Name))</div>
                 <div id="movieInfoPlot">@Model.Movie_Desc</div>
-                <a href="@Model.Movie_Trailer_URL" id="movieInfoTrailerButton">WATCH TRAILER</a>
+                <a id="movieInfoTrailerButton">WATCH TRAILER</a>
 
 
                 <br>
