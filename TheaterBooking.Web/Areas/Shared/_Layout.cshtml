@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://apis.google.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <title>@(PageData["Title"] ?? Html.MvcSiteMap().SiteMap.CurrentNode?.Title) - @Html.MvcSiteMap().SiteMap.RootNode.Title</title>
     @Styles.Render("~/Content/css")
     @if (BundleTable.Bundles.GetBundleFor($"~/Content/less-{ViewContext.RouteData.DataTokens["area"]}") != null)
