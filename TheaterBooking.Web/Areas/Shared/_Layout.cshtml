@@ -46,7 +46,7 @@
 
 @{
     Context.Response.Headers.Add("Content-Security-Policy",
-        "default-src 'none'; " +
+        "default-src 'self'; " +
         "connect-src 'self'; " +
         "script-src 'self' " +
         "'unsafe-inline'; " + // unsafe-inline is ignored by browsers supporting CSP2; this is for Edge support
