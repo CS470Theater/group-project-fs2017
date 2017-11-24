@@ -301,6 +301,9 @@
     <Compile Include="Areas\Movies\Controllers\ListingController.cs" />
     <Compile Include="Areas\Movies\Controllers\PreviewController.cs" />
     <Compile Include="Areas\Movies\MoviesAreaRegistration.cs" />
+    <Compile Include="Areas\Tickets\Controllers\TicketController.cs" />
+    <Compile Include="Areas\Tickets\Models\PurchaseViewModel.cs" />
+    <Compile Include="Areas\Tickets\TicketsAreaRegistration.cs" />
     <Compile Include="Database\Booking.cs" />
     <Compile Include="Database\Genre.cs" />
     <Compile Include="Database\Movie.cs" />
@@ -433,6 +436,9 @@
     <Content Include="Areas\Admin\Views\Tickets\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Tickets\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Tickets\Index.cshtml" />
+    <Content Include="Areas\Tickets\Views\web.config" />
+    <Content Include="Areas\Tickets\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Tickets\Views\Ticket\Purchase.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">

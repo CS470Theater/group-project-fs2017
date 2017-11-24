@@ -1,5 +1,6 @@
 @using System
 @using System.Linq
+@using TheaterBooking.Web.Database
 @model TheaterBooking.Web.Database.Movie
 
 <div id="wrapper" class="preview">
@@ -42,23 +43,17 @@
 
 
                 <br>
-                <div class="popupDropdown popupDropdownTimes">
-                    <div class="popupDropdownRoot">
-                        <div class="popupDropdownText">select time</div>
-                        <img class="popupDropdownArrow" src="assets/down.svg">
-                    </div>
-                    <div class="popupDropdownElements">
-                        <div class="popupDropdownElementsInner">
-                            @*TODO: REST API + dynamic jQuery stuff*@
-                            @foreach (var date in Model.Showtimes.Where(day => day.Show_Date.Date == DateTime.Now.Date))
-                            {
-                                <div class="popupDropdownElement popupDropdownElementTime">@date.Show_Date.ToShortTimeString()</div>
-                            }
-                        </div>
-                    </div>
-                </div>
+                
+            @using (Html.BeginForm("Purchase", "Ticket", new {area = "Tickets"}, FormMethod.Get, new {@class = "form-horizontal"}))
+            {
+                @Html.DropDownList("showtimeId", Model.Showtimes.Select(s => new SelectListItem
+                {
+                    Text = (s.Show_Date + s.Show_Time).ToString("f"),
+                    Value = s.Showtime_ID.ToString()
+                }))
                 <br>
-                <div id="movieInfoBookButton">BOOK NOW</div>
+                <button type="submit" id="movieInfoBookButton">BOOK NOW</button>
+            }
             </div>
         </div>
     </div>
