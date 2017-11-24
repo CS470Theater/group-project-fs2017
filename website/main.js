@@ -20,6 +20,8 @@ $(window).on("load", function() {
     
 });
 
+
+
 function animateToLoginContent() {
     
     $("#loginBoxContentRegister").css("display", "none");
@@ -29,6 +31,8 @@ function animateToLoginContent() {
     
 }
 
+
+
 function animateToRegisterContent() {
     
     $("#loginBoxContentLogin").css("display", "none");
@@ -37,34 +41,6 @@ function animateToRegisterContent() {
     $("#loginBox").css("height", "371px");
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
