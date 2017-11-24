@@ -131,16 +131,6 @@ function popupDropdownChange(element) {
 
 
 
-function updateTimesDropdown(day) {
-    
-    // function to update the times popup dropdown based on the day parameter
-    // so need to loop through all the times for a certain date to add the elements to the times popup dropdown
-    // not sure what else i can do here, i think this just requires some asp
-    
-}
-
-
-
 function getHeight(selector) {
     
     $(selector).css("height", "auto");
@@ -150,51 +140,6 @@ function getHeight(selector) {
     return h;
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
