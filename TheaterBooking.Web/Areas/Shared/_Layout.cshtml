@@ -45,14 +45,14 @@
 
 @{
     Context.Response.Headers.Add("Content-Security-Policy",
-        "default-src 'self'; " +
+        "default-src 'none'; " +
         "connect-src 'self'; " +
         "script-src 'self' " +
         "'unsafe-inline'; " + // unsafe-inline is ignored by browsers supporting CSP2; this is for Edge support
         // see https://www.w3.org/TR/CSP2/#directive-script-src
         "style-src 'self' fonts.googleapis.com; " +
         "font-src 'self' fonts.gstatic.com; " +
-        "child-src https://youtube.com; " +
+        "frame-src www.youtube.com; " +
         "form-action 'self'; " +
         "img-src 'self' image.ibb.co;");
 }
