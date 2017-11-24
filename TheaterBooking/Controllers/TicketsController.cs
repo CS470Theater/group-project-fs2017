@@ -17,8 +17,8 @@ namespace TheaterBooking.Views
         // GET: Tickets
         public ActionResult Index()
         {
-            var tickets = db.Tickets.Include(t => t.Booking).Include(t => t.Price).Include(t => t.Showtime);
-            return View(tickets.ToList());
+            var ticket = db.Ticket.Include(t => t.Booking).Include(t => t.Price).Include(t => t.Showtime);
+            return View(ticket.ToList());
         }
 
         // GET: Tickets/Details/5
@@ -28,7 +28,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
+            Ticket ticket = db.Ticket.Find(id);
             if (ticket == null)
             {
                 return HttpNotFound();
@@ -39,9 +39,9 @@ namespace TheaterBooking.Views
         // GET: Tickets/Create
         public ActionResult Create()
         {
-            ViewBag.Booking_ID = new SelectList(db.Bookings, "Booking_ID", "Booking_ID");
-            ViewBag.Price_ID = new SelectList(db.Prices, "Price_ID", "Price_Desc");
-            ViewBag.Showtime_ID = new SelectList(db.Showtimes, "Showtime_ID", "Showtime_ID");
+            ViewBag.Booking_ID = new SelectList(db.Booking, "Booking_ID", "Customer_ID");
+            ViewBag.Price_ID = new SelectList(db.Price, "Price_ID", "Price_Desc");
+            ViewBag.Showtime_ID = new SelectList(db.Showtime, "Showtime_ID", "Showtime_ID");
             return View();
         }
 
@@ -54,14 +54,14 @@ namespace TheaterBooking.Views
         {
             if (ModelState.IsValid)
             {
-                db.Tickets.Add(ticket);
+                db.Ticket.Add(ticket);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Booking_ID = new SelectList(db.Bookings, "Booking_ID", "Booking_ID", ticket.Booking_ID);
-            ViewBag.Price_ID = new SelectList(db.Prices, "Price_ID", "Price_Desc", ticket.Price_ID);
-            ViewBag.Showtime_ID = new SelectList(db.Showtimes, "Showtime_ID", "Showtime_ID", ticket.Showtime_ID);
+            ViewBag.Booking_ID = new SelectList(db.Booking, "Booking_ID", "Customer_ID", ticket.Booking_ID);
+            ViewBag.Price_ID = new SelectList(db.Price, "Price_ID", "Price_Desc", ticket.Price_ID);
+            ViewBag.Showtime_ID = new SelectList(db.Showtime, "Showtime_ID", "Showtime_ID", ticket.Showtime_ID);
             return View(ticket);
         }
 
@@ -72,14 +72,14 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
+            Ticket ticket = db.Ticket.Find(id);
             if (ticket == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Booking_ID = new SelectList(db.Bookings, "Booking_ID", "Booking_ID", ticket.Booking_ID);
-            ViewBag.Price_ID = new SelectList(db.Prices, "Price_ID", "Price_Desc", ticket.Price_ID);
-            ViewBag.Showtime_ID = new SelectList(db.Showtimes, "Showtime_ID", "Showtime_ID", ticket.Showtime_ID);
+            ViewBag.Booking_ID = new SelectList(db.Booking, "Booking_ID", "Customer_ID", ticket.Booking_ID);
+            ViewBag.Price_ID = new SelectList(db.Price, "Price_ID", "Price_Desc", ticket.Price_ID);
+            ViewBag.Showtime_ID = new SelectList(db.Showtime, "Showtime_ID", "Showtime_ID", ticket.Showtime_ID);
             return View(ticket);
         }
 
@@ -96,9 +96,9 @@ namespace TheaterBooking.Views
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Booking_ID = new SelectList(db.Bookings, "Booking_ID", "Booking_ID", ticket.Booking_ID);
-            ViewBag.Price_ID = new SelectList(db.Prices, "Price_ID", "Price_Desc", ticket.Price_ID);
-            ViewBag.Showtime_ID = new SelectList(db.Showtimes, "Showtime_ID", "Showtime_ID", ticket.Showtime_ID);
+            ViewBag.Booking_ID = new SelectList(db.Booking, "Booking_ID", "Customer_ID", ticket.Booking_ID);
+            ViewBag.Price_ID = new SelectList(db.Price, "Price_ID", "Price_Desc", ticket.Price_ID);
+            ViewBag.Showtime_ID = new SelectList(db.Showtime, "Showtime_ID", "Showtime_ID", ticket.Showtime_ID);
             return View(ticket);
         }
 
@@ -109,7 +109,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
+            Ticket ticket = db.Ticket.Find(id);
             if (ticket == null)
             {
                 return HttpNotFound();
@@ -122,8 +122,8 @@ namespace TheaterBooking.Views
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Ticket ticket = db.Tickets.Find(id);
-            db.Tickets.Remove(ticket);
+            Ticket ticket = db.Ticket.Find(id);
+            db.Ticket.Remove(ticket);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -17,8 +17,8 @@ namespace TheaterBooking.Views
         // GET: Showtimes
         public ActionResult Index()
         {
-            var showtimes = db.Showtimes.Include(s => s.Movie).Include(s => s.Screen);
-            return View(showtimes.ToList());
+            var showtime = db.Showtime.Include(s => s.Movie).Include(s => s.Screen);
+            return View(showtime.ToList());
         }
 
         // GET: Showtimes/Details/5
@@ -28,7 +28,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Showtime showtime = db.Showtimes.Find(id);
+            Showtime showtime = db.Showtime.Find(id);
             if (showtime == null)
             {
                 return HttpNotFound();
@@ -39,8 +39,8 @@ namespace TheaterBooking.Views
         // GET: Showtimes/Create
         public ActionResult Create()
         {
-            ViewBag.Movie_ID = new SelectList(db.Movies, "Movie_ID", "Movie_Name");
-            ViewBag.Screen_ID = new SelectList(db.Screens, "Screen_ID", "Screen_ID");
+            ViewBag.Movie_ID = new SelectList(db.Movie, "Movie_ID", "Movie_Name");
+            ViewBag.Screen_ID = new SelectList(db.Screen, "Screen_ID", "Screen_ID");
             return View();
         }
 
@@ -53,13 +53,13 @@ namespace TheaterBooking.Views
         {
             if (ModelState.IsValid)
             {
-                db.Showtimes.Add(showtime);
+                db.Showtime.Add(showtime);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Movie_ID = new SelectList(db.Movies, "Movie_ID", "Movie_Name", showtime.Movie_ID);
-            ViewBag.Screen_ID = new SelectList(db.Screens, "Screen_ID", "Screen_ID", showtime.Screen_ID);
+            ViewBag.Movie_ID = new SelectList(db.Movie, "Movie_ID", "Movie_Name", showtime.Movie_ID);
+            ViewBag.Screen_ID = new SelectList(db.Screen, "Screen_ID", "Screen_ID", showtime.Screen_ID);
             return View(showtime);
         }
 
@@ -70,13 +70,13 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Showtime showtime = db.Showtimes.Find(id);
+            Showtime showtime = db.Showtime.Find(id);
             if (showtime == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Movie_ID = new SelectList(db.Movies, "Movie_ID", "Movie_Name", showtime.Movie_ID);
-            ViewBag.Screen_ID = new SelectList(db.Screens, "Screen_ID", "Screen_ID", showtime.Screen_ID);
+            ViewBag.Movie_ID = new SelectList(db.Movie, "Movie_ID", "Movie_Name", showtime.Movie_ID);
+            ViewBag.Screen_ID = new SelectList(db.Screen, "Screen_ID", "Screen_ID", showtime.Screen_ID);
             return View(showtime);
         }
 
@@ -93,8 +93,8 @@ namespace TheaterBooking.Views
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Movie_ID = new SelectList(db.Movies, "Movie_ID", "Movie_Name", showtime.Movie_ID);
-            ViewBag.Screen_ID = new SelectList(db.Screens, "Screen_ID", "Screen_ID", showtime.Screen_ID);
+            ViewBag.Movie_ID = new SelectList(db.Movie, "Movie_ID", "Movie_Name", showtime.Movie_ID);
+            ViewBag.Screen_ID = new SelectList(db.Screen, "Screen_ID", "Screen_ID", showtime.Screen_ID);
             return View(showtime);
         }
 
@@ -105,7 +105,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Showtime showtime = db.Showtimes.Find(id);
+            Showtime showtime = db.Showtime.Find(id);
             if (showtime == null)
             {
                 return HttpNotFound();
@@ -118,8 +118,8 @@ namespace TheaterBooking.Views
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Showtime showtime = db.Showtimes.Find(id);
-            db.Showtimes.Remove(showtime);
+            Showtime showtime = db.Showtime.Find(id);
+            db.Showtime.Remove(showtime);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

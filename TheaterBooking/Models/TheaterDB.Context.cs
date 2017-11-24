@@ -25,15 +25,15 @@ namespace TheaterBooking.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Booking> Bookings { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Genre> Genres { get; set; }
-        public virtual DbSet<Movie> Movies { get; set; }
-        public virtual DbSet<Price> Prices { get; set; }
-        public virtual DbSet<Rating> Ratings { get; set; }
-        public virtual DbSet<Screen> Screens { get; set; }
-        public virtual DbSet<Showtime> Showtimes { get; set; }
-        public virtual DbSet<Theater> Theaters { get; set; }
-        public virtual DbSet<Ticket> Tickets { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Booking> Booking { get; set; }
+        public virtual DbSet<Genre> Genre { get; set; }
+        public virtual DbSet<Movie> Movie { get; set; }
+        public virtual DbSet<Price> Price { get; set; }
+        public virtual DbSet<Rating> Rating { get; set; }
+        public virtual DbSet<Screen> Screen { get; set; }
+        public virtual DbSet<Showtime> Showtime { get; set; }
+        public virtual DbSet<Theater> Theater { get; set; }
+        public virtual DbSet<Ticket> Ticket { get; set; }
     }
 }

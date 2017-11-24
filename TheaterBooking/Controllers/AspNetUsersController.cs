@@ -10,107 +10,107 @@ using TheaterBooking.Models;
 
 namespace TheaterBooking.Views
 {
-    public class CustomersController : Controller
+    public class AspNetUsersController : Controller
     {
         private TheaterDBEntities db = new TheaterDBEntities();
 
-        // GET: Customers
+        // GET: AspNetUsers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(db.AspNetUsers.ToList());
         }
 
-        // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+        // GET: AspNetUsers/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(aspNetUsers);
         }
 
-        // GET: Customers/Create
+        // GET: AspNetUsers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: AspNetUsers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Customer_ID,First_Name,Last_Name,Username,Password")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUsers aspNetUsers)
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
+                db.AspNetUsers.Add(aspNetUsers);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(customer);
+            return View(aspNetUsers);
         }
 
-        // GET: Customers/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: AspNetUsers/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(aspNetUsers);
         }
 
-        // POST: Customers/Edit/5
+        // POST: AspNetUsers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Customer_ID,First_Name,Last_Name,Username,Password")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUsers aspNetUsers)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(aspNetUsers).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(aspNetUsers);
         }
 
-        // GET: Customers/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: AspNetUsers/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(aspNetUsers);
         }
 
-        // POST: Customers/Delete/5
+        // POST: AspNetUsers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            db.AspNetUsers.Remove(aspNetUsers);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

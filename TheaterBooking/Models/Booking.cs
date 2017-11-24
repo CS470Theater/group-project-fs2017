@@ -17,15 +17,17 @@ namespace TheaterBooking.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Booking()
         {
-            this.Tickets = new HashSet<Ticket>();
+            this.Ticket = new HashSet<Ticket>();
         }
     
         public int Booking_ID { get; set; }
-        public int Customer_ID { get; set; }
+        public string Customer_ID { get; set; }
         public System.DateTime Booking_Date { get; set; }
+        public decimal Total_Cost { get; set; }
+        public bool Payment_Type { get; set; }
     
-        public virtual Customer Customer { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Ticket> Ticket { get; set; }
     }
 }

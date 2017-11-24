@@ -17,7 +17,7 @@ namespace TheaterBooking.Views
         // GET: Theaters
         public ActionResult Index()
         {
-            return View(db.Theaters.ToList());
+            return View(db.Theater.ToList());
         }
 
         // GET: Theaters/Details/5
@@ -27,7 +27,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Theater theater = db.Theaters.Find(id);
+            Theater theater = db.Theater.Find(id);
             if (theater == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace TheaterBooking.Views
         {
             if (ModelState.IsValid)
             {
-                db.Theaters.Add(theater);
+                db.Theater.Add(theater);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Theater theater = db.Theaters.Find(id);
+            Theater theater = db.Theater.Find(id);
             if (theater == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Theater theater = db.Theaters.Find(id);
+            Theater theater = db.Theater.Find(id);
             if (theater == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace TheaterBooking.Views
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Theater theater = db.Theaters.Find(id);
-            db.Theaters.Remove(theater);
+            Theater theater = db.Theater.Find(id);
+            db.Theater.Remove(theater);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

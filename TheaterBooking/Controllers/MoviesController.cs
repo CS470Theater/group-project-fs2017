@@ -17,8 +17,8 @@ namespace TheaterBooking.Views
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = db.Movies.Include(m => m.Rating);
-            return View(movies.ToList());
+            var movie = db.Movie.Include(m => m.Rating);
+            return View(movie.ToList());
         }
 
         // GET: Movies/Details/5
@@ -28,7 +28,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = db.Movie.Find(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace TheaterBooking.Views
         // GET: Movies/Create
         public ActionResult Create()
         {
-            ViewBag.Rating_ID = new SelectList(db.Ratings, "Rating_ID", "Rating_Symbol");
+            ViewBag.Rating_ID = new SelectList(db.Rating, "Rating_ID", "Rating_Symbol");
             return View();
         }
 
@@ -48,16 +48,16 @@ namespace TheaterBooking.Views
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Movie_ID,Rating_ID,Movie_Name,Movie_Desc,Movie_Poster,Date_Start,Date_End,Duration_Hour,Duration_Minute")] Movie movie)
+        public ActionResult Create([Bind(Include = "Movie_ID,Rating_ID,Movie_Name,Movie_Desc,Movie_Poster_URL,Date_Start,Date_End,Duration_Hour,Duration_Minute,Movie_Trailer_URL")] Movie movie)
         {
             if (ModelState.IsValid)
             {
-                db.Movies.Add(movie);
+                db.Movie.Add(movie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Rating_ID = new SelectList(db.Ratings, "Rating_ID", "Rating_Symbol", movie.Rating_ID);
+            ViewBag.Rating_ID = new SelectList(db.Rating, "Rating_ID", "Rating_Symbol", movie.Rating_ID);
             return View(movie);
         }
 
@@ -68,12 +68,12 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = db.Movie.Find(id);
             if (movie == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Rating_ID = new SelectList(db.Ratings, "Rating_ID", "Rating_Symbol", movie.Rating_ID);
+            ViewBag.Rating_ID = new SelectList(db.Rating, "Rating_ID", "Rating_Symbol", movie.Rating_ID);
             return View(movie);
         }
 
@@ -82,7 +82,7 @@ namespace TheaterBooking.Views
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Movie_ID,Rating_ID,Movie_Name,Movie_Desc,Movie_Poster,Date_Start,Date_End,Duration_Hour,Duration_Minute")] Movie movie)
+        public ActionResult Edit([Bind(Include = "Movie_ID,Rating_ID,Movie_Name,Movie_Desc,Movie_Poster_URL,Date_Start,Date_End,Duration_Hour,Duration_Minute,Movie_Trailer_URL")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace TheaterBooking.Views
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Rating_ID = new SelectList(db.Ratings, "Rating_ID", "Rating_Symbol", movie.Rating_ID);
+            ViewBag.Rating_ID = new SelectList(db.Rating, "Rating_ID", "Rating_Symbol", movie.Rating_ID);
             return View(movie);
         }
 
@@ -101,7 +101,7 @@ namespace TheaterBooking.Views
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = db.Movie.Find(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace TheaterBooking.Views
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Movie movie = db.Movies.Find(id);
-            db.Movies.Remove(movie);
+            Movie movie = db.Movie.Find(id);
+            db.Movie.Remove(movie);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

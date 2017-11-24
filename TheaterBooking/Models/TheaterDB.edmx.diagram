@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3cc0f728bcdc454da295d3fb6fa4916f" Name="Diagram1">
-        <EntityTypeShape EntityType="TheaterDBModel.Booking" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TheaterDBModel.Customer" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TheaterDBModel.Genre" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+      <Diagram DiagramId="ad0171b4c2f241b4b6ec140fba1d1d43" Name="Diagram1">
+        <EntityTypeShape EntityType="TheaterDBModel.AspNetUsers" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheaterDBModel.Booking" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheaterDBModel.Genre" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="TheaterDBModel.Movie" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TheaterDBModel.Price" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TheaterDBModel.Rating" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TheaterDBModel.Screen" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TheaterDBModel.Showtime" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheaterDBModel.Price" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheaterDBModel.Rating" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheaterDBModel.Screen" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheaterDBModel.Showtime" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TheaterDBModel.Theater" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TheaterDBModel.Ticket" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
-        <AssociationConnector Association="TheaterDBModel.FK_Booking_Customer" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TheaterDBModel.Ticket" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="TheaterDBModel.FK_Booking_AspNetUsers" ManuallyRouted="false" />
         <AssociationConnector Association="TheaterDBModel.FK_Ticket_Booking" ManuallyRouted="false" />
         <AssociationConnector Association="TheaterDBModel.FK_Movie_Rating" ManuallyRouted="false" />
         <AssociationConnector Association="TheaterDBModel.FK_Showtime_Movie" ManuallyRouted="false" />

@@ -15,7 +15,13 @@
             @Html.DisplayNameFor(model => model.Booking_Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Customer.First_Name)
+            @Html.DisplayNameFor(model => model.Total_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
         </th>
         <th></th>
     </tr>
@@ -26,7 +32,13 @@
             @Html.DisplayFor(modelItem => item.Booking_Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Customer.First_Name)
+            @Html.DisplayFor(modelItem => item.Total_Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Booking_ID }) |

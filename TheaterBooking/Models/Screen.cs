@@ -17,7 +17,7 @@ namespace TheaterBooking.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Screen()
         {
-            this.Showtimes = new HashSet<Showtime>();
+            this.Showtime = new HashSet<Showtime>();
         }
     
         public int Screen_ID { get; set; }
@@ -26,6 +26,6 @@ namespace TheaterBooking.Models
     
         public virtual Theater Theater { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Showtime> Showtimes { get; set; }
+        public virtual ICollection<Showtime> Showtime { get; set; }
     }
 }
