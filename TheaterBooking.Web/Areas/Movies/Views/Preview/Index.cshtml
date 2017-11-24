@@ -38,9 +38,9 @@
                     </div>
                     <div class="popupDropdownElements">
                         <div class="popupDropdownElementsInner">
-                            @foreach (var date in Model.Showtimes.Select(day => day.Show_Date.Date).Distinct())
+                            @foreach (var date in Model.Showtimes.Select(day => day.Show_Date))
                             {
-                                <div class="popupDropdownElement popupDropdownElementDay">@date.ToLongDateString()</div>
+                                <div class="popupDropdownElement popupDropdownElementDay">@date.ToString("f")</div>
                             }
                         </div>
                     </div>
