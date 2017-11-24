@@ -20,9 +20,6 @@ $(window).on("load", function() {
     
 });
 
-// 333 x 348
-// 596 x 371
-
 function animateToLoginContent() {
     
     $("#loginBoxContentRegister").css("display", "none");
