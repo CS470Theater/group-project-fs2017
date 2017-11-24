@@ -1,4 +1,4 @@
-﻿@using System.Security.Claims
+@using System.Security.Claims
 @using System.Web.Optimization
 @using MvcSiteMapProvider.Web.Html
 
@@ -6,7 +6,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://apis.google.com">
     <title>@(PageData["Title"] ?? Html.MvcSiteMap().SiteMap.CurrentNode?.Title) - @Html.MvcSiteMap().SiteMap.RootNode.Title</title>
     @Styles.Render("~/Content/css")
     @if (BundleTable.Bundles.GetBundleFor($"~/Content/less-{ViewContext.RouteData.DataTokens["area"]}") != null)
