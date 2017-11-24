@@ -22,7 +22,7 @@ namespace TheaterBooking.Web.Areas.Account.Models
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        [StringLength(1024, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(1024, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
         public string Password { get; set; }
 
         /// <summary>

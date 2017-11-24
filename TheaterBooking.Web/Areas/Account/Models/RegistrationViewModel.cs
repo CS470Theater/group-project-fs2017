@@ -19,7 +19,7 @@ namespace TheaterBooking.Web.Areas.Account.Models
         ///     Gets or sets the user's password
         /// </summary>
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -31,5 +31,21 @@ namespace TheaterBooking.Web.Areas.Account.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and the confirmation password did not match.")]
         public string ConfirmPassword { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the user's first name
+        /// </summary>
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the user's last name
+        /// </summary>
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
     }
 }

@@ -16,10 +16,4 @@ namespace TheaterBooking.Web.Areas.Admin.Models
         [StringLength(10)]
         public string Password { get; set; }
     }
-
-    public class User
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
 }

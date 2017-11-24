@@ -281,6 +281,7 @@
     <Compile Include="Areas\Account\Controllers\IdentityResultExtensions.cs" />
     <Compile Include="Areas\Account\Controllers\LoginController.cs" />
     <Compile Include="Areas\Account\Controllers\LogoutController.cs" />
+    <Compile Include="Areas\Account\Controllers\RegistrationController.cs" />
     <Compile Include="Areas\Account\Models\LoginViewModel.cs" />
     <Compile Include="Areas\Account\Models\RegistrationViewModel.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -335,6 +336,7 @@
     <Compile Include="Utilities\TransferResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Account\Views\Registration\Index.cshtml" />
     <None Include="Areas\Admin\Content\jquery.validate-vsdoc.js" />
     <Content Include="Areas\Admin\Content\jquery.validate.js" />
     <Content Include="Areas\Admin\Content\jquery.validate.min.js" />

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TheaterBooking.Web.Users
 {
@@ -7,5 +8,11 @@ namespace TheaterBooking.Web.Users
     /// </summary>
     public class User : IdentityUser
     {
+        public string FirstName { get; set; }
+        
+        public string LastName { get; set; }
+
+        [NotMapped]
+        public string Name => $"{FirstName} {LastName}";
     }
 }

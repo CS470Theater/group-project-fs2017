@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using System;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using TheaterBooking.Web.Users;
@@ -59,7 +61,45 @@ namespace TheaterBooking.Web.Areas.Account.Controllers
 
             return View(new LoginViewModel {Salt = salt, RedirectUri = redirectUri});
         }
-        
+
+        /// <summary>
+        ///     Attempts to login the user specified in the model
+        /// </summary>
+        /// <param name="model">The login view model containing the username and password</param>
+        /// <returns>A view of the login confirmation page</returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AnonymousOnly]
+        public async Task<ActionResult> Index(LoginViewModel model)
+        {
+            using (var hash = SHA256.Create())
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                var result = await _signinManager.Value.PasswordSignInAsync(
+                    Base62.Encode(hash.ComputeHash(Encoding.UTF8.GetBytes(model.Email))),
+                    model.Password, false, false);
+
+                switch (result)
+                {
+                    case SignInStatus.LockedOut:
+                    case SignInStatus.RequiresVerification:
+                        throw new NotImplementedException();
+                    case SignInStatus.Success:
+                        return RedirectToRoute("Default");
+                    case SignInStatus.Failure:
+                        ModelState.AddModelError("", "Username or password was incorrect.");
+                        model.Password = "";
+                        return View(model);
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+        }
+
         /// <summary>
         ///     Begins an external login using an OAuth2 provider
         /// </summary>
@@ -93,6 +133,9 @@ namespace TheaterBooking.Web.Areas.Account.Controllers
                     return View("Index", new LoginViewModel {Salt = salt, RedirectUri = redirectUri});
                 }
 
+                var name = JsonConvert.DeserializeAnonymousType(info.ExternalIdentity.FindFirst("name").Value,
+                    new { givenName = "", familyName = "" });
+
                 var result = await _signinManager.Value.ExternalSignInAsync(info, false);
                 switch (result)
                 {
@@ -107,7 +150,9 @@ namespace TheaterBooking.Web.Areas.Account.Controllers
                         var user = new User
                         {
                             UserName = Base62.Encode(Base64.UrlSafeDecode(new RandomStringFactory().Generate())),
-                            Email = info.Email
+                            Email = info.Email,
+                            FirstName = name.givenName,
+                            LastName = name.familyName
                         };
                         
                         if (!(await _userManager.Value.CreateAsync(user)).IsValid(ModelState))
