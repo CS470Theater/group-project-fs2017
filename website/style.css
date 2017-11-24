@@ -32,30 +32,60 @@ body {
 #loginBox {
     
     background-color: #333333;
+    width: 333px;
+    height: 348px;
+    overflow: hidden;
+    -webkit-transition: all 0.25s ease;
+	-moz-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
+	transition: all 0.25s ease;
     
 }
 
 #loginBoxHeader {
     
     color: #FF9500;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
     background-color: #3B3B3B;
     text-align: left;
+    display: flex;
+    flex-direction: row;
     
 }
 
-#loginBoxContent {
+.loginBoxHeaderElement {
     
-    margin: 35px;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.loginBoxHeaderElementActive {
+    
+    background-color: #454545;
+    border-bottom: 1px solid #FF9500;
+    
+}
+
+.loginBoxContent {
+    
+    margin: 40px;
     margin-left: 55px;
     margin-right: 55px;
     text-align: right;
     
 }
 
-
+#loginBoxContentRegister {
+    
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 60px;
+    
+}
 
 
 
@@ -133,16 +163,21 @@ body {
 
 
 
-#loginButton {
+.loginButton {
     
     font-family: "Roboto Slab";
+    color: white;
     display: inline-block;
+    font-size: 16px;
+    padding: 0;
     padding-top: 10px;
     padding-bottom: 10px;
     cursor: pointer;
+    border: none;
     border-bottom: 2px solid #FF9500;
+    background: transparent;
     
-    margin-top: 60px;
+    margin-top: 40px;
     
     -webkit-transition: all 0.2s ease;
 	-moz-transition: all 0.2s ease;
@@ -151,7 +186,7 @@ body {
     
 }
 
-#loginButton:hover {
+.loginButton:hover {
     
     padding-left: 20px;
     padding-right: 20px;

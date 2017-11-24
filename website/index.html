@@ -6,6 +6,10 @@
 	
 	<title>home</title>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script src="main.js"></script>
+    
 	<link rel="stylesheet" href="style.css">
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -20,13 +24,16 @@
         
         <div id="loginBox">
             
-            <div id="loginBoxHeader">login to book movie tickets</div>
+            <div id="loginBoxHeader">
+                <div class="loginBoxHeaderElement loginBoxHeaderElementActive">login</div>
+                <div class="loginBoxHeaderElement">register</div>
+            </div>
             
-            <div id="loginBoxContent">
+            <div class="loginBoxContent" id="loginBoxContentLogin">
                 
                 <div class="loginBoxTextField">
                     <input class="loginBoxInput" type="text" autocomplete="off" required>
-                    <label class="loginBoxInputLabel">username</label>
+                    <label class="loginBoxInputLabel">email</label>
                 </div>
                 
                 <div class="loginBoxTextField" style="margin-top:40px">
@@ -34,7 +41,46 @@
                     <label class="loginBoxInputLabel">password</label>
                 </div>
                 
-                <div id="loginButton">LOGIN</div>
+                <button class="loginButton">login</button>
+                
+            </div>
+            
+            <div class="loginBoxContent" id="loginBoxContentRegister" style="display:none">
+                
+                <div>
+                    
+                    <div class="loginBoxTextField">
+                        <input class="loginBoxInput" type="text" autocomplete="off" required>
+                        <label class="loginBoxInputLabel">email</label>
+                    </div>
+                    
+                    <div class="loginBoxTextField" style="margin-top:40px">
+                        <input class="loginBoxInput" type="password" autocomplete="off" required>
+                        <label class="loginBoxInputLabel">password</label>
+                    </div>
+                    
+                    <div class="loginBoxTextField" style="margin-top:40px">
+                        <input class="loginBoxInput" type="password" autocomplete="off" required>
+                        <label class="loginBoxInputLabel">confirm password</label>
+                    </div>
+                    
+                </div>
+                
+                <div style="margin-left:40px;">
+                    
+                    <div class="loginBoxTextField">
+                        <input class="loginBoxInput" type="text" autocomplete="off" required>
+                        <label class="loginBoxInputLabel">first name</label>
+                    </div>
+                    
+                    <div class="loginBoxTextField" style="margin-top:40px">
+                        <input class="loginBoxInput" type="text" autocomplete="off" required>
+                        <label class="loginBoxInputLabel">last name</label>
+                    </div>
+                    
+                    <button class="loginButton">register</button>
+                    
+                </div>
                 
             </div>
             
