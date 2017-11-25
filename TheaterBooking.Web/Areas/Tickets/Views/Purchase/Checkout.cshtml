@@ -1,0 +1,15 @@
+﻿@using TheaterBooking.Web.Database
+@model TheaterBooking.Web.Areas.Tickets.Models.PurchaseViewModel
+@{
+    var showtime = (Showtime)ViewBag.Showtime;
+    ViewBag.Title = "Checkout complete";
+}
+
+Thank you for booking: @showtime.Movie.Movie_Name
+<br>
+Show time: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))
+<br>
+@foreach(var quantity in Model.Quantities)
+{
+    @:@quantity.Value @Model.Prices[quantity.Key].Price_Desc ticket(s) <br>
+}

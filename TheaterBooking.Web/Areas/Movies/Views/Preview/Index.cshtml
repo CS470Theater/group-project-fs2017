@@ -49,7 +49,7 @@
 
                 <br>
                 
-            @using (Html.BeginForm("Purchase", "Ticket", new {area = "Tickets"}, FormMethod.Get, new {@class = "form-horizontal"}))
+            @using (Html.BeginForm("Index", "Purchase", new {area = "Tickets"}, FormMethod.Get, new {@class = "form-horizontal"}))
             {
                 @Html.DropDownList("showtimeId", Model.Showtimes.Select(s => new SelectListItem
                 {

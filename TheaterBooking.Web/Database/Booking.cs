@@ -15,8 +15,10 @@ namespace TheaterBooking.Web.Database
     
         [Key]
         public int Booking_ID { get; set; }
-        public int Customer_ID { get; set; }
+        public string Customer_ID { get; set; }
         public DateTime Booking_Date { get; set; }
+        public decimal Total_Cost { get; set; }
+        public bool Payment_Type { get; set; }
 
         // public virtual User Customer { get; set; } (use TheaterBooking.Web.Users)
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

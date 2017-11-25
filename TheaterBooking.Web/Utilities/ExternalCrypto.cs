@@ -195,7 +195,7 @@ namespace TheaterBooking.Web.Utilities
         /// </summary>
         /// <returns>A byte array with additional random material to combine with salt and pepper</returns>
         [NotNull]
-        protected virtual byte[] GetAdditionalAesKeyEntropy() => new byte[0];
+        protected virtual byte[] GetAdditionalAesKeyEntropy() => Base64.Decode("DZjbMG9CdjVAbVfugdsW0i4Iq74jYuAmbuckmK9iXb8=");
 
         /// <summary>
         ///     Creates an AES implementation instance with the specified initialization vector
