@@ -27,36 +27,27 @@
                     @(Model.Duration_Hour)h @(Model.Duration_Minute)min |
                     @string.Join(", ", Model.Genres.Select(genre => genre.Genre_Name))</div>
                 <div id="movieInfoPlot">@Model.Movie_Desc</div>
-                <a id="movieInfoTrailerButton">WATCH TRAILER</a>
+                <div><a id="movieInfoTrailerButton">WATCH TRAILER</a></div>
 
-
-                <br>
+            @using (Html.BeginForm("Index", "Purchase", new {area = "Tickets"}, FormMethod.Get,
+                new {@class = "form-horizontal", id = "previewForm"}))
+            {
                 <div class="popupDropdown popupDropdownDays">
                     <div class="popupDropdownRoot">
-                        <div class="popupDropdownText">select day</div>
+                        <div class="popupDropdownText">select showtime</div>
                         <img class="popupDropdownArrow" src="~/Areas/Movies/Content/down.svg">
                     </div>
                     <div class="popupDropdownElements">
                         <div class="popupDropdownElementsInner">
-                            @foreach (var date in Model.Showtimes.Select(day => day.Show_Date))
+                            @foreach (var s in Model.Showtimes)
                             {
-                                <div class="popupDropdownElement popupDropdownElementDay">@date.ToString("f")</div>
+                                <div class="popupDropdownElement" data-value="@s.Showtime_ID">@((s.Show_Date + s.Show_Time).ToString("f"))</div>
                             }
                         </div>
                     </div>
                 </div>
-
-
                 <br>
-                
-            @using (Html.BeginForm("Index", "Purchase", new {area = "Tickets"}, FormMethod.Get, new {@class = "form-horizontal"}))
-            {
-                @Html.DropDownList("showtimeId", Model.Showtimes.Select(s => new SelectListItem
-                {
-                    Text = (s.Show_Date + s.Show_Time).ToString("f"),
-                    Value = s.Showtime_ID.ToString()
-                }))
-                <br>
+                @Html.Hidden("showtimeId")
                 <button type="submit" id="movieInfoBookButton">BOOK NOW</button>
             }
             </div>

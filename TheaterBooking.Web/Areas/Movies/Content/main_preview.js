@@ -1,4 +1,4 @@
-$(window).on("load", function() {
+$(function() {
     
     $(".popupDropdownRoot").on("click", function() {
         popupDropdownShow(this);
@@ -25,8 +25,7 @@ $(window).on("load", function() {
         popupDropdownChange(this);
     });
     
-    $(document).on("click", function(event) {
-        
+    $(document).on("click", function() {
         // checking if any popup dropdowns need to be closed
         var dropdowns = document.getElementsByClassName("popupDropdown");
         var dropdownElements = document.getElementsByClassName("popupDropdownElements");
@@ -36,9 +35,7 @@ $(window).on("load", function() {
                 $(dropdowns[i]).attr("id", "closed");
             }
         }
-        
     });
-    
 });
 
 
@@ -116,17 +113,10 @@ function popupDropdownShow(root) {
 
 
 function popupDropdownChange(element) {
-    
     var root = $(element).parent().parent().siblings()[0];
-    var popupDropdown = $(root).parent();
-    
-    if ($(popupDropdown).hasClass("popupDropdownDays")) {
-        updateTimesDropdown($(element).html());
-    }
-    
     var rootText = $(root).children()[0];
     $(rootText).html($(element).html());
-    
+    $("#showtimeId").val($(element).data("value"));
 }
 
 
