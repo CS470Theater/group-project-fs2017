@@ -5,6 +5,8 @@
 }
 
 #mainContent.listing {
+    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 50px;
     margin-bottom: 50px;
     width: 1000px;
@@ -54,4 +56,31 @@
     margin-right: 20px;
     margin-bottom: 20px;
     background-color: #FF9500;
+}
+
+@media all and (max-width: 1000px) {
+    #mainContent.listing {
+        width: 100%;
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+    .movieEntry {
+        margin-bottom: 2vw;
+    }
+    .movieEntryImage {
+        height: 31.5vw;
+    }
+    .movieEntryInner {
+        font-size: 1.5vw;
+    }
+    .movieEntryTitle {
+        font-size: 3.2vw;
+    }
+    .movieEntryTime {
+        padding: 0.7vw;
+        padding-top: 0.5vw;
+        padding-bottom: 0.5vw;
+        margin-right: 2vw;
+        margin-bottom: 2vw;
+    }
 }
