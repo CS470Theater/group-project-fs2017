@@ -117,6 +117,7 @@ function popupDropdownChange(element) {
     var rootText = $(root).children()[0];
     $(rootText).html($(element).html());
     $("#showtimeId").val($(element).data("value"));
+    document.getElementById('movieInfoBookButton').disabled = false;
 }
 
 
