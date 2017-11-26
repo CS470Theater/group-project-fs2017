@@ -2,7 +2,7 @@
 
 @foreach (var node in Model.Nodes)
 {
-    <div class="@(node.Children?.Count > 0 ? "nav-parent-expanded":"") @(node.IsCurrentNode ? " w3-green" : "")">
+    <div class="@(node.Children?.Count > 0 ? "nav-parent-expanded":"") @(node.IsCurrentNode ? " w3-orange" : "")">
         @Html.DisplayFor(m => node)
 
         @if (node.IsInCurrentPath)

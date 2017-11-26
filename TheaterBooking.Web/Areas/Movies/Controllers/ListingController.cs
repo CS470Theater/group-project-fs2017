@@ -23,7 +23,7 @@ namespace TheaterBooking.Web.Areas.Movies.Controllers
         ///     Gets the listing index page
         /// </summary>
         /// <returns>A view of the index page</returns>
-        [Authorize(Roles="web.home.view")]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(_db.Movies

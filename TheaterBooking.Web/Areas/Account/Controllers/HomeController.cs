@@ -15,12 +15,7 @@ namespace TheaterBooking.Web.Areas.Account.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            if (!Request.IsAuthenticated)
-            {
-                return new TransferResult("Index", "Login", new {area = "Account"});
-            }
-
-            return View();
+            return new TransferResult("Index", "Listing", new { area = "Movies" });
         }
     }
 }

@@ -3,10 +3,6 @@
 @helper TitleHelper()
 {
     @Model.Title
-    if (Model.IsCurrentNode)
-    {
-        <span class="sr-only">(current)</span>
-    }
 }
 
 @if (Model.IsCurrentNode && (Model.SourceMetadata["HtmlHelper"].ToString() != "MvcSiteMapProvider.Web.Html.MenuHelper"))

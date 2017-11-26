@@ -26,7 +26,7 @@ namespace TheaterBooking.Web.Areas.Movies.Controllers
         ///     Gets the home index page
         /// </summary>
         /// <returns>A view of the index page</returns>
-        [Authorize(Roles = "web.home.view")]
+        [AllowAnonymous]
         public ActionResult Index(int movieId)
         {
             var movie = _db.Movies.Where(m => m.Movie_ID == movieId)

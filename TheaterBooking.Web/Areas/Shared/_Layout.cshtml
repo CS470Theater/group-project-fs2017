@@ -21,9 +21,12 @@
 
 <nav class="w3-bar ibo-banner">
     <a href="/" class="w3-bar-item w3-button w3-hover-black">instant<span class="ibo-banner-emphasis">box</span>office</a>
-    @if (User == null)
+    @if (((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier) == null)
     {
-        @Html.ActionLink("Sign In", "Index", "Login", new {area = "Account"}, new {@class = "w3-bar-item w3-button w3-right ibo-banner-half" })
+        <div class="w3-padding">
+            @Html.ActionLink("Sign In", "Index", "Login", new {area = "Account"},
+                new {@class = "w3-bar-item w3-button w3-right ibo-banner-half" })
+        </div>
     }
     else
     {

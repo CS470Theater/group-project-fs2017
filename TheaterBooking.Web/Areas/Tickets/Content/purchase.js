@@ -1,6 +1,6 @@
 ﻿$(function () {
     function data(key) { return $('#data').data(key); }
-    if (!getElementById('data')) {
+    if (!document.getElementById('data')) {
         return;
     }
 

@@ -471,7 +471,6 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\Account\Views\Home\Index.cshtml" />
     <Content Include="Areas\Shared\_Layout.cshtml" />
     <Content Include="Areas\Shared\web.config" />
     <Content Include="Areas\Account\Views\_ViewStart.cshtml" />
