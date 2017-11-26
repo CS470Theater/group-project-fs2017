@@ -44,7 +44,7 @@ body {
 
 #youtubeVideoX {
     position: fixed;
-    width: 25px;
+    width: 50px;
     top: 5vh;
     right: calc(5vw - 30px);
     padding: 10px;

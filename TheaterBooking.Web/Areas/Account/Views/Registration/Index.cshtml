@@ -26,7 +26,7 @@
                 <div>
 
                     <div class="loginBoxTextField">
-                        @Html.PasswordFor(m => m.Email, new { @class = "loginBoxInput", required = "required" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "loginBoxInput", required = "required" })
                         <label class="loginBoxInputLabel">email</label>
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "w3-text-red w3-block" })
                     </div>
@@ -48,13 +48,13 @@
                 <div style="margin-left:40px;">
 
                     <div class="loginBoxTextField">
-                        @Html.PasswordFor(m => m.FirstName, new { @class = "loginBoxInput", required = "required" })
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "loginBoxInput", required = "required" })
                         <label class="loginBoxInputLabel">first name</label>
                         @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "w3-text-red w3-block" })
                     </div>
 
                     <div class="loginBoxTextField" style="margin-top:40px">
-                        @Html.PasswordFor(m => m.LastName, new { @class = "loginBoxInput", required = "required" })
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "loginBoxInput", required = "required" })
                         <label class="loginBoxInputLabel">last name</label>
                         @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "w3-text-red w3-block" })
                     </div>
