@@ -5,15 +5,17 @@
     <div id="mainContent" class="listing">
         @foreach (var movie in Model)
         {
-            <div class="movieEntry">
-                <a href="@Url.Action("Index", "Preview", new {movieId = movie.Movie_ID})" class="movieEntryInner">
+            <a href="@Url.Action("Index", "Preview", new {movieId = movie.Movie_ID})" class="movieEntry">
+                <div class="movieEntryInner">
                     <img class="movieEntryImage" src="@movie.Movie_Poster_URL">
                     <div class="movieEntryContent">
                         <div class="movieEntryContentInner">
                             <div class="movieEntryTitle">@movie.Movie_Name</div>
-                            <div class="movieEntryUnderTitle">@movie.Rating.Rating_Symbol |
+                            <div class="movieEntryUnderTitle">
+                                @movie.Rating.Rating_Symbol |
                                 @(movie.Duration_Hour)h @(movie.Duration_Minute)min |
-                            @string.Join(", ", movie.Genres.Select(genre => genre.Genre_Name))</div>
+                                @string.Join(", ", movie.Genres.Select(genre => genre.Genre_Name))
+                            </div>
                             <div class="movieEntryPlot">@movie.Movie_Desc</div>
                             <div class="movieEntryTimes">
                                 @foreach (var time in movie.Showtimes)
@@ -23,8 +25,8 @@
                             </div>
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         }
     </div>
 </div>
