@@ -27,7 +27,7 @@
     }
     else
     {
-        <div class="w3-dropdown-hover w3-right ibo-banner-half">
+        <div class="w3-dropdown-hover w3-right ibo-banner-half w3-padding">
             <button class="w3-button">
                 @(((ClaimsIdentity) User.Identity).FindFirst(ClaimTypes.GivenName)?.Value ?? "unknown user")
             </button>

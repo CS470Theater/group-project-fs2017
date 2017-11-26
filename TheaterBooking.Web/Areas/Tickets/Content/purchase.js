@@ -1,5 +1,8 @@
 ﻿$(function () {
     function data(key) { return $('#data').data(key); }
+    if (!getElementById('data')) {
+        return;
+    }
 
     braintree.client.create({
         authorization: data('client-token')

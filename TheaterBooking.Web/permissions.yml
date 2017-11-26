@@ -1,5 +1,7 @@
 ﻿roles:
   Default:
     permissions:
-    - web.admin.view
     - web.home.view
+  Admin:
+    permissions:
+    - web.admin.view

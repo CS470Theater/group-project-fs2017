@@ -1,0 +1,34 @@
+﻿@using System.Linq
+@model System.Collections.Generic.IList<TheaterBooking.Web.Database.Booking>
+
+<div class="w3-padding-64">
+    @foreach (var booking in Model)
+    {
+        var showtime = booking.Tickets.First().Showtime;
+        var movie = showtime.Movie;
+        <div class="w3-section w3-row-padding w3-dark-gray">
+            <div class="w3-col s4 w3-center">
+                <img src="@movie.Movie_Poster_URL" width="50%"/>
+            </div>
+            <div class="w3-col s8">
+                <div class="w3-row">@booking.Booking_Date.ToString("D")</div>
+                <div class="w3-row">@((showtime.Show_Date + showtime.Show_Time).ToString("f"))</div>
+                <div class="w3-row">
+                    <a href="@Url.Action("Index", "Preview", new {area = "Movies", movieId = movie.Movie_ID})">@movie.Movie_Name</a>
+                </div>
+
+                @foreach (var ticket in booking.Tickets.GroupBy(ticket => ticket.Price_ID))
+                {
+                    var price = ticket.First().Price;
+                    <div class="w3-row">
+                        @ticket.Count() @price.Price_Desc tickets <span class="w3-right">@price.Price_Amount.ToString("C")</span>
+                    </div>
+                }
+
+                <div class="w3-row w3-right">
+                    Total: @booking.Total_Cost.ToString("C")
+                </div>
+            </div>
+        </div>
+    }
+</div>

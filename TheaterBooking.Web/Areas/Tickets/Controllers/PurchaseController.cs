@@ -114,7 +114,6 @@ namespace TheaterBooking.Web.Areas.Tickets.Controllers
                 return View("Index", model);
             }
 
-
             var booking = new Booking {
                 Booking_Date = DateTime.Today,
                 Customer_ID = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value,
@@ -128,7 +127,8 @@ namespace TheaterBooking.Web.Areas.Tickets.Controllers
                     booking.Tickets.Add(new Ticket
                     {
                         Price = model.Prices[quantity.Key],
-                        Showtime = showtime
+                        Showtime = showtime,
+                        Booking = booking
                     });
                 }
             }

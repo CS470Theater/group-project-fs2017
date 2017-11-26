@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace TheaterBooking.Web.Database
@@ -14,6 +15,7 @@ namespace TheaterBooking.Web.Database
         }
     
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Booking_ID { get; set; }
         public string Customer_ID { get; set; }
         public DateTime Booking_Date { get; set; }
