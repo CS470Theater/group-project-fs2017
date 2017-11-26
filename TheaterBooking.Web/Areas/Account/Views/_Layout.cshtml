@@ -1,7 +1,7 @@
 ﻿@using System.Web.Optimization
 @using MvcSiteMapProvider.Web.Html
 <!DOCTYPE html>
-<html>
+<html class="w3">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +12,12 @@
         @Styles.Render($"~/Content/less-{ViewContext.RouteData.DataTokens["area"]}")
     }
 </head>
-<body class="w3-light-grey">
-    @RenderBody()
+<body>
+<div class="ibo-center">
+    <div class="ibo-panel">
+        <div class="ibo-header w3-padding-small">@PageData["Title"]</div>
+        <div class="w3-margin">@RenderBody()</div>
+    </div>
+</div>
 </body>
 </html>
