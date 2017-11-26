@@ -4,66 +4,7 @@
 @{
     PageData["Title"] = "Login";
 }
-@*
-@using (Html.BeginForm("Index", "Login", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "w3-text-red" })
 
-    <div class="w3-section">
-        @Html.LabelFor(m => m.Email, new { @class = "w3-block" })
-        @Html.TextBoxFor(m => m.Email, new { @class = "w3-block w3-border-gray" })
-        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "w3-text-red w3-block" })
-    </div>
-
-    <div class="w3-section">
-        @Html.LabelFor(m => m.Password, new { @class = "w3-block" })
-        @Html.PasswordFor(m => m.Password, new { @class = "w3-block w3-border-gray" })
-        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "w3-text-red w3-block" })
-    </div>
-
-    <div class="w3-row w3-section">
-        <button type="submit" class="loginRegisterButton">Sign In</button>
-    </div>
-
-    <div class="w3-section w3-center">
-        Don't have an account yet? @Html.ActionLink("Register as a new user", "Index", "Registration")
-    </div>
-}
-
-<hr />
-
-@using (Html.BeginForm("ExternalLogin", "Login", FormMethod.Post, new {@class = "w3-row"}))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "Please correct the following error(s)",
-        new { @class = "w3-pale-yellow w3-border w3-border-yellow w3-padding w3-section" })
-    @Html.HiddenFor(m => m.Salt)
-    @Html.HiddenFor(m => m.RedirectUri)
-
-    foreach (var provider in Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes())
-    {
-        string buttonClass;
-        string iconClass;
-        switch (provider.Caption)
-        {
-            case "Google":
-                buttonClass = "btn-google w3-button";
-                iconClass = "google";
-                break;
-            default:
-                buttonClass = "w3-grey";
-                iconClass = provider.Caption.ToLower();
-                break;
-        }
-
-        <button type="submit" id="loginButton" class="w3-right @buttonClass" name="provider"
-                value="@provider.AuthenticationType" title="Sign in using your @provider.Caption account">
-            <i class="fa fa-@iconClass fa-fw"></i> Sign in with @provider.Caption
-        </button>
-    }
-}
-*@
 <div id="wrapper" class="loginRegister">
 
     <div class="middleBox" id="loginBox">
