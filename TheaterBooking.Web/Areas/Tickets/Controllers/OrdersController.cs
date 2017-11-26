@@ -28,8 +28,8 @@ namespace TheaterBooking.Web.Areas.Tickets.Controllers
                 .Include(booking => booking.Tickets.Select(ticket => ticket.Showtime))
                 .Include(booking => booking.Tickets.Select(ticket => ticket.Showtime.Movie))
                 .Where(booking => booking.Customer_ID == customerId)
-                .OrderBy(booking => booking.Booking_Date)
-                .ThenBy(booking => booking.Booking_ID)
+                .OrderByDescending(booking => booking.Booking_Date)
+                .ThenByDescending(booking => booking.Booking_ID)
                 .ToList());
         }
     }
