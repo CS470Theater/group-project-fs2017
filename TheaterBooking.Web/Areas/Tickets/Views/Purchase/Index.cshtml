@@ -16,7 +16,7 @@
 
         <div id="firstHeader">Buying tickets for</div>
         <div id="movieTitle">@showtime.Movie.Movie_Name</div>
-        <div id="secondHeader">Show time: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))</div>
+        <div id="secondHeader">Showtime: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))</div>
 
         @using (Html.BeginForm("Checkout", "Purchase", FormMethod.Post, new { @class = "pricesForm", id = "form" }))
         {

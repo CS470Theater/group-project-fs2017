@@ -3,6 +3,7 @@
     position: relative;
     display: flex;
 	justify-content: center;
+    font-size: 0.75vw;
 }
 
 #mainContent.purchase {
@@ -14,19 +15,25 @@
     padding: 30px;
 }
 
+@media screen and (max-width: 1000px) {
+    #mainContent.purchase {
+        width: 100%;
+    }
+}
+
 #firstHeader {
-    font-size: 16px;
+    font-size: 0.85vw;
 }
 
 #movieTitle {
-    font-size: 84px;
+    font-size: 5vw;
     margin-bottom: 15px;
     font-weight: 300;
 }
 
 #secondHeader {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 0.85vw;
     margin-bottom: 40px;
 }
 
