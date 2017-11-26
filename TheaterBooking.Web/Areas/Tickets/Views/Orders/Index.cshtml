@@ -27,8 +27,9 @@
                 @foreach (var ticket in booking.Tickets.GroupBy(ticket => ticket.Price_ID))
                 {
                     var price = ticket.First().Price;
+                    var count = ticket.Count();
                     <div class="w3-row">
-                        @ticket.Count() @price.Price_Desc tickets <span class="w3-right">@price.Price_Amount.ToString("C")</span>
+                        @count @price.Price_Desc tickets <span class="w3-right">@(price.Price_Amount * count).ToString("C")</span>
                     </div>
                 }
 
