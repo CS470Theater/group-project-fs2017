@@ -13,3 +13,6 @@ Show time: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))
 {
     @:@quantity.Value @Model.Prices[quantity.Key].Price_Desc ticket(s) <br>
 }
+
+<br>
+@Html.ActionLink("Go back", "Index", "Listing", new {area = "Movies"}, null)
