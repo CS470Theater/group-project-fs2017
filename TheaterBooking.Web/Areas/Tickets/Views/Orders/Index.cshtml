@@ -29,7 +29,7 @@
                     var price = ticket.First().Price;
                     var count = ticket.Count();
                     <div class="w3-row">
-                        @count @price.Price_Desc tickets <span class="w3-right">@(price.Price_Amount * count).ToString("C")</span>
+                        @count @price.Price_Desc tickets <span class="w3-right">@((price.Price_Amount * count).ToString("C"))</span>
                     </div>
                 }
 
