@@ -26,6 +26,8 @@ namespace TheaterBooking.Web.Areas.Tickets.Controllers
             var customerId = ((ClaimsIdentity) User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
             return View(_db.Bookings.Include(booking => booking.Tickets.Select(ticket => ticket.Price))
                 .Include(booking => booking.Tickets.Select(ticket => ticket.Showtime))
+                .Include(booking => booking.Tickets.Select(ticket => ticket.Showtime.Screen))
+                .Include(booking => booking.Tickets.Select(ticket => ticket.Showtime.Screen.Theater))
                 .Include(booking => booking.Tickets.Select(ticket => ticket.Showtime.Movie))
                 .Where(booking => booking.Customer_ID == customerId)
                 .OrderByDescending(booking => booking.Booking_Date)
