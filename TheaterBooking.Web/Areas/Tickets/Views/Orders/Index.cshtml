@@ -6,22 +6,30 @@
     {
         var showtime = booking.Tickets.First().Showtime;
         var movie = showtime.Movie;
+        var theater = showtime.Screen.Theater;
         <div class="w3-section w3-row-padding w3-dark-gray">
             <div class="w3-col s4 w3-center">
                 <img src="@movie.Movie_Poster_URL" width="50%"/>
             </div>
             <div class="w3-col s8">
-                <div class="w3-row">@booking.Booking_Date.ToString("D")</div>
-                <div class="w3-row">@((showtime.Show_Date + showtime.Show_Time).ToString("f"))</div>
                 <div class="w3-row">
                     <a href="@Url.Action("Index", "Preview", new {area = "Movies", movieId = movie.Movie_ID})">@movie.Movie_Name</a>
                 </div>
+                <div class="w3-row">@booking.Booking_Date.ToString("D")</div>
+                <div class="w3-row">@((showtime.Show_Date + showtime.Show_Time).ToString("f"))</div>
+                <br>
+                <div class="w3-row">Screen #@showtime.Screen.Screen_ID</div>
+                <div class="w3-row">@theater.Theater_Name</div>
+                <div class="w3-row">@theater.Theater_Address</div>
+                <div class="w3-row">@theater.Theater_Phone</div>
+                <br>
 
                 @foreach (var ticket in booking.Tickets.GroupBy(ticket => ticket.Price_ID))
                 {
                     var price = ticket.First().Price;
+                    var count = ticket.Count();
                     <div class="w3-row">
-                        @ticket.Count() @price.Price_Desc tickets <span class="w3-right">@price.Price_Amount.ToString("C")</span>
+                        @count @price.Price_Desc tickets <span class="w3-right">@(price.Price_Amount * count).ToString("C")</span>
                     </div>
                 }
 

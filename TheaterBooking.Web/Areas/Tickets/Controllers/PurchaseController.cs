@@ -77,7 +77,7 @@ namespace TheaterBooking.Web.Areas.Tickets.Controllers
         public async Task<ActionResult> Checkout(PurchaseViewModel model)
         {
             var showtime = _db.Showtimes.Where(s => s.Showtime_ID == model.ShowtimeId)
-                .Include(s => s.Movie).SingleOrDefault();
+                .Include(s => s.Movie).Include(s => s.Screen).Include(s => s.Screen.Theater).SingleOrDefault();
             model.Prices = _db.Prices.ToDictionary(price => price.Price_ID);
             model.Quantities = model.Prices.ToDictionary(price => price.Key, price => uint.Parse(Request.Form.Get($"Quantities[{price.Key}]") ?? "0"));
             ViewBag.Showtime = showtime ?? throw new HttpException((int)HttpStatusCode.NotFound, "Showtime not found");
