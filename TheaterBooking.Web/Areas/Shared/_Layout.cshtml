@@ -3,7 +3,7 @@
 @using MvcSiteMapProvider.Web.Html
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="w3">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,37 +18,47 @@
 </head>
 
 <body>
-<div id="topBanner">
-    <div id="topBannerInner">instant<span class="topBannerEmphasis">box</span>office</div>
-</div>
 
-    <nav>
-        @(((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.GivenName)?.Value ?? "unknown user")
-        @using (Html.BeginForm("Index", "Logout", new { area = "Account" }, FormMethod.Post, new { id = "logout_form", @class = "navbar-form navbar-right" }))
-        {
-            @Html.AntiForgeryToken()
-            <button type="submit" class="w3-bar-item w3-button" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
-        }
-        @Html.MvcSiteMap().Menu(Html.MvcSiteMap().SiteMap.RootNode, true, false, 2, true)
-    </nav>
-
-    @RenderBody()
-
-    @* ReSharper disable once OtherTagsInsideScript1 *@
-    @RenderSection("bodyScripts", false)
-    @Scripts.Render("~/Content/scripts")
-    @if (BundleTable.Bundles.GetBundleFor($"~/Content/js-{ViewContext.RouteData.DataTokens["area"]}") != null)
+<nav class="w3-bar ibo-banner">
+    <a href="/" class="w3-bar-item w3-button w3-hover-black">instant<span class="ibo-banner-emphasis">box</span>office</a>
+    @if (User == null)
     {
-        @Scripts.Render($"~/Content/js-{ViewContext.RouteData.DataTokens["area"]}")
+        @Html.ActionLink("Sign In", "Index", "Login", new {area = "Account"}, new {@class = "w3-bar-item w3-button w3-right ibo-banner-half" })
     }
+    else
+    {
+        <div class="w3-dropdown-hover w3-right ibo-banner-half">
+            <button class="w3-button">
+                @(((ClaimsIdentity) User.Identity).FindFirst(ClaimTypes.GivenName)?.Value ?? "unknown user")
+            </button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                @Html.MvcSiteMap().Menu(Html.MvcSiteMap().SiteMap.RootNode, true, false, 2, true)
+                
+                @using (Html.BeginForm("Index", "Logout", new {area = "Account"}, FormMethod.Post, new {id = "logout_form", @class = "navbar-form navbar-right"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="w3-bar-item w3-button" href="#">Logout</button>
+                }
+            </div>
+        </div>
+    }
+</nav>
+
+@RenderBody()
+
+@* ReSharper disable once OtherTagsInsideScript1 *@
+@RenderSection("bodyScripts", false)
+@Scripts.Render("~/Content/scripts")
+@if (BundleTable.Bundles.GetBundleFor($"~/Content/js-{ViewContext.RouteData.DataTokens["area"]}") != null)
+{
+    @Scripts.Render($"~/Content/js-{ViewContext.RouteData.DataTokens["area"]}")
+}
 
 @{
     Context.Response.Headers.Add("Content-Security-Policy",
         "default-src 'none'; " +
         "connect-src 'self' api.sandbox.braintreegateway.com; " +
-        "script-src 'self' www.paypal.com " +
-        "'unsafe-inline'; " + // unsafe-inline is ignored by browsers supporting CSP2; this is for Edge support
-                              // see https://www.w3.org/TR/CSP2/#directive-script-src
+        "script-src 'self' www.paypal.com 'unsafe-inline'; " +
         "style-src 'self' fonts.googleapis.com; " +
         "font-src 'self' fonts.gstatic.com; " +
         "frame-src www.youtube.com www.sandbox.paypal.com; " +
