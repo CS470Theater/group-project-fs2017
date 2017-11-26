@@ -10,6 +10,7 @@
      data-showtime-id="@Model.ShowtimeId"
      data-prices="@JsonConvert.SerializeObject(Model.Prices.ToDictionary(price => price.Key, price => price.Value.Price_Amount))"></div>
 
+@*
 Buy tickets for: @showtime.Movie.Movie_Name
 <br/>
 Show time: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))
@@ -36,4 +37,40 @@ Show time: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))
     <div id="paypal-button"></div>
     <div>PayPal Username: instantboxoffice@kreatious.net</div>
     <div>PayPal Password: instantboxoffice</div>
+</div>
+*@
+
+<div id="wrapper" class="purchase">
+
+    <div id="mainContent" class="purchase">
+
+        <div id="firstHeader">Buying tickets for</div>
+        <div id="movieTitle">@showtime.Movie.Movie_Name</div>
+        <div id="secondHeader">Show time: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))</div>
+
+        @using (Html.BeginForm("Checkout", "Purchase", FormMethod.Post, new { @class = "pricesForm", id = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "help-block" })
+            @Html.HiddenFor(m => m.ShowtimeId)
+            <input type="hidden" name="nonce" id="nonce">
+
+            foreach (var price in Model.Prices)
+            {
+                <div class="priceGroup">
+                    <div class="priceGroupContent">
+                        @Html.TextBoxFor(m => m.Quantities[price.Key], new { @class = "priceInput", @onkeypress = "return event.charCode >= 48 && event.charCode <= 57" })
+                        <div class="priceDesc">@price.Value.Price_Desc tickets (@price.Value.Price_Amount.ToString("C"))</div>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Quantities[price.Key], "", new { @class = "help-block" })
+                </div>
+            }
+        }
+
+        <div id="paypal-button"></div>
+        <div>PayPal Username: instantboxoffice@kreatious.net</div>
+        <div>PayPal Password: instantboxoffice</div>
+
+    </div>
+
 </div>
