@@ -459,6 +459,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\site.less" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Content\w3.css" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
