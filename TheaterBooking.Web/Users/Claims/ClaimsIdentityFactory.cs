@@ -58,9 +58,9 @@ namespace TheaterBooking.Web.Users.Claims
 
             async Task<ClaimsIdentity> Run()
             {
-                var displayName = user.Name;
                 var identity = await base.CreateAsync(manager, user, authenticationType);
-                identity.AddClaim(new Claim(ClaimTypes.GivenName, displayName));
+                identity.AddClaim(new Claim("firstName", user.FirstName));
+                identity.AddClaim(new Claim(ClaimTypes.GivenName, user.LastName));
                 identity.AddClaim(new Claim(ClaimTypes.Hash, GenerateRandomString()));
 
                 foreach (var permission in _permissionsModel["Default"])

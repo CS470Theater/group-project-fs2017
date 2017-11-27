@@ -21,40 +21,33 @@
 
 <body>
 
-<div id="topBanner">
-
-    <a href="/" id="siteTitle">instant<span class="topBannerEmphasis">box</span>office</a>
+<nav class="ibo-banner">
+    <a href="/" class="ibo-item w3-button w3-left">instant<span class="ibo-banner-emphasis">box</span>office</a>
     
     @if (((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier) == null)
     {
-        <a href="" id="signInButton">sign <span class="topBannerEmphasis">in</span></a>
-        @*@Html.ActionLink("Sign In", "Index", "Login", new {area = "Account"}, new {@class = "w3-bar-item w3-button w3-right ibo-banner-half" })*@
+        <a href="@Url.Action("Index", "Login", new {area = "Account"})" class="w3-right w3-button ibo-signin ibo-item">sign<span class="ibo-banner-emphasis">in</span></a>
     }
     else
     {
-        <div id="userDropdownWrapper">
-            <div id="userDropdownRoot">jacob <span class="topBannerEmphasis">mahoney</span></div>
-            <div id="userDropdown">
-                <a href="" class="userDropdownElement">Orders</a>
-                <a href="" class="userDropdownElement">Logout</a>
-            </div>
-        </div>
-        @*<div class="w3-dropdown-hover w3-right ibo-banner-half w3-padding">
-            <button class="w3-button">
-                @(((ClaimsIdentity) User.Identity).FindFirst(ClaimTypes.GivenName)?.Value.ToLower() ?? "unknown user")
+        var identity = (ClaimsIdentity) User.Identity;
+        var firstName = identity.FindFirst("firstName")?.Value ?? "john";
+        var lastName = identity.FindFirst(ClaimTypes.GivenName)?.Value ?? "doe";
+        <div class="w3-dropdown-hover ibo-signin w3-right">
+            <button class="w3-button ibo-item">
+                @firstName<span class="ibo-banner-emphasis">@lastName</span>
             </button>
-            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-opacity">
                 @Html.MvcSiteMap().Menu(Html.MvcSiteMap().SiteMap.RootNode, true, false, 2, true)
-                @using (Html.BeginForm("Index", "Logout", new {area = "Account"}, FormMethod.Post, new {id = "logout_form", @class = "navbar-form navbar-right"}))
+                @using (Html.BeginForm("Index", "Logout", new {area = "Account"}, FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
                     <button type="submit" class="w3-bar-item w3-button" href="#">Logout</button>
                 }
             </div>
-        </div>*@
+        </div>
     }
-    
-</div>
+</nav>
 
 @RenderBody()
 
