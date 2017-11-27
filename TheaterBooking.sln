@@ -7,29 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheaterBooking.Web", "Theat
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TheaterBooking.SqlDb", "TheaterBooking.SqlDb\TheaterBooking.SqlDb.sqlproj", "{3002F2FF-40D3-49D5-B5E1-F38EC0E7860E}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website\", "{C4B2371C-F7F1-43C6-BBBF-C70861594430}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_63641"
-		Debug.AspNetCompiler.PhysicalPath = "website\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63641\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_63641"
-		Release.AspNetCompiler.PhysicalPath = "website\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63641\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "63641"
-		SlnRelativePath = "website\"
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheaterBooking", "TheaterBooking\TheaterBooking.csproj", "{B230BF7F-3970-4183-BF4F-DB45D3B222D4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,12 +23,6 @@ Global
 		{3002F2FF-40D3-49D5-B5E1-F38EC0E7860E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3002F2FF-40D3-49D5-B5E1-F38EC0E7860E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3002F2FF-40D3-49D5-B5E1-F38EC0E7860E}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{C4B2371C-F7F1-43C6-BBBF-C70861594430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4B2371C-F7F1-43C6-BBBF-C70861594430}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4B2371C-F7F1-43C6-BBBF-C70861594430}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4B2371C-F7F1-43C6-BBBF-C70861594430}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{B230BF7F-3970-4183-BF4F-DB45D3B222D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B230BF7F-3970-4183-BF4F-DB45D3B222D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
