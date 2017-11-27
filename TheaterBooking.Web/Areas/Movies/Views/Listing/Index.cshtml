@@ -1,3 +1,4 @@
+@using System
 @using System.Linq
 @model System.Collections.Generic.IList<TheaterBooking.Web.Database.Movie>
 
@@ -18,9 +19,9 @@
                             </div>
                             <div class="movieEntryPlot">@movie.Movie_Desc</div>
                             <div class="movieEntryTimes">
-                                @foreach (var time in movie.Showtimes)
+                                @foreach (var time in movie.Showtimes.Select(showtime => showtime.Show_Time).Distinct())
                                 {
-                                    <div class="movieEntryTime">@((time.Show_Date + time.Show_Time).ToString("hh:mm tt"))</div>
+                                    <div class="movieEntryTime">@((DateTime.Today + time).ToString("hh:mm tt"))</div>
                                 }
                             </div>
                         </div>
