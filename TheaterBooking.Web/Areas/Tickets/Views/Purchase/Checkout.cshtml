@@ -6,22 +6,27 @@
     ViewBag.Title = "Checkout complete";
 }
 
-Thank you for booking: @showtime.Movie.Movie_Name
-<br>
-Show time: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))
-<br>
-Screen: @showtime.Screen.Screen_ID
-<br>
-Theater:
-@theater.Theater_Name <br> 
-@theater.Theater_Address <br>
-@theater.Theater_Phone <br>
-<br>
+<div id="wrapper" class="purchase">
 
-@foreach(var quantity in Model.Quantities)
-{
-    @:@quantity.Value @Model.Prices[quantity.Key].Price_Desc ticket(s) <br>
-}
+    <div id="mainContent" class="purchase">
 
-<br>
-@Html.ActionLink("Go back", "Index", "Listing", new {area = "Movies"}, null)
+        <div class="purchaseHeader">Thank you for booking</div>
+        <div class="movieTitle">@showtime.Movie.Movie_Name</div>
+        <div class="purchaseHeaderBold">Showtime: @((showtime.Show_Date + showtime.Show_Time).ToString("f"))</div>
+        <div class="purchaseHeader">Screen: @showtime.Screen.Screen_ID</div>
+
+        <br>
+        Theater:
+        @theater.Theater_Name <br>
+        @theater.Theater_Address <br>
+        @theater.Theater_Phone <br>
+        <br>
+
+        @foreach (var quantity in Model.Quantities)
+        {
+            @:@quantity.Value @Model.Prices[quantity.Key].Price_Desc ticket(s) <br>
+        }
+
+    </div>
+
+</div>
