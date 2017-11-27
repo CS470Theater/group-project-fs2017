@@ -27,7 +27,7 @@
                     @(Model.Duration_Hour)h @(Model.Duration_Minute)min |
                     @string.Join(", ", Model.Genres.Select(genre => genre.Genre_Name))</div>
                 <div id="movieInfoPlot">@Model.Movie_Desc</div>
-                <div><a id="movieInfoTrailerButton">WATCH TRAILER</a></div>
+                <div id="movieInfoTrailerButton">WATCH TRAILER</div>
 
             @using (Html.BeginForm("Index", "Purchase", new {area = "Tickets"}, FormMethod.Get,
                 new {@class = "form-horizontal", id = "previewForm"}))
