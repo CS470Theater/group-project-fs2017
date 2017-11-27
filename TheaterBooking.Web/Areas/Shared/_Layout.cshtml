@@ -1,6 +1,8 @@
 ﻿@using System.Security.Claims
 @using System.Web.Optimization
 @using MvcSiteMapProvider.Web.Html
+@Scripts.Render("~/Scripts/jquery-3.2.1.js")
+@Scripts.Render("~/Content/topBannerDropdown.js")
 
 <!DOCTYPE html>
 <html lang="en" class="w3">
@@ -19,33 +21,40 @@
 
 <body>
 
-<nav class="w3-bar ibo-banner">
-    <a href="/" class="w3-bar-item w3-button w3-hover-black">instant<span class="ibo-banner-emphasis">box</span>office</a>
+<div id="topBanner">
+
+    <a href="/" id="siteTitle">instant<span class="topBannerEmphasis">box</span>office</a>
+    
     @if (((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier) == null)
     {
-        <div class="w3-padding">
-            @Html.ActionLink("Sign In", "Index", "Login", new {area = "Account"},
-                new {@class = "w3-bar-item w3-button w3-right ibo-banner-half" })
-        </div>
+        <a href="" id="signInButton">sign <span class="topBannerEmphasis">in</span></a>
+        @*@Html.ActionLink("Sign In", "Index", "Login", new {area = "Account"}, new {@class = "w3-bar-item w3-button w3-right ibo-banner-half" })*@
     }
     else
     {
-        <div class="w3-dropdown-hover w3-right ibo-banner-half w3-padding">
+        <div id="userDropdownWrapper">
+            <div id="userDropdownRoot">jacob <span class="topBannerEmphasis">mahoney</span></div>
+            <div id="userDropdown">
+                <a href="" class="userDropdownElement">Orders</a>
+                <a href="" class="userDropdownElement">Logout</a>
+            </div>
+        </div>
+        @*<div class="w3-dropdown-hover w3-right ibo-banner-half w3-padding">
             <button class="w3-button">
-                @(((ClaimsIdentity) User.Identity).FindFirst(ClaimTypes.GivenName)?.Value ?? "unknown user")
+                @(((ClaimsIdentity) User.Identity).FindFirst(ClaimTypes.GivenName)?.Value.ToLower() ?? "unknown user")
             </button>
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
                 @Html.MvcSiteMap().Menu(Html.MvcSiteMap().SiteMap.RootNode, true, false, 2, true)
-                
                 @using (Html.BeginForm("Index", "Logout", new {area = "Account"}, FormMethod.Post, new {id = "logout_form", @class = "navbar-form navbar-right"}))
                 {
                     @Html.AntiForgeryToken()
                     <button type="submit" class="w3-bar-item w3-button" href="#">Logout</button>
                 }
             </div>
-        </div>
+        </div>*@
     }
-</nav>
+    
+</div>
 
 @RenderBody()
 

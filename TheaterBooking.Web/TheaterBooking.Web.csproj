@@ -362,6 +362,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\topBannerDropdown.js" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Properties\version.txt" />
     <Content Include="Areas\Error\Views\Error\_ViewStart.cshtml" />
