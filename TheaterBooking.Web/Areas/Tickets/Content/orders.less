@@ -1,0 +1,75 @@
+#wrapper.orders {
+    font-family: 'Open Sans', Arial;
+    position: relative;
+    display: flex;
+	justify-content: center;
+}
+
+#mainContent.orders {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 1000px;
+}
+
+.orderEntry {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #2E2E2E;
+    display: flex;
+    align-items: center;
+}
+
+.orderEntryInner {
+
+    height: 100%;
+    width: 100%;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+
+}
+
+.orderEntryTitle {
+
+    font-size: 38px;
+    margin-top: -7px;
+
+}
+
+.titleAndDate, .orderDetails, .paymentDetails {
+
+    position: relative;
+    display: block;
+
+}
+
+.orderEmphasis {
+    color: #FF9500;
+    font-weight: 700;
+}
+
+@media all and (max-width: 1000px) {
+    #mainContent.orders {
+        width: 100%;
+        margin-left: 2vw;
+        margin-right: 2vw;
+        margin-top: 5vw;
+        margin-bottom: 5vw;
+    }
+    .orderEntry {
+        margin-bottom: 2vw;
+    }
+}
+
+@media all and (max-width: 875px) {
+    #wrapper.orders {
+        font-size: 1.7vw;
+    }
+    .orderEntryTitle {
+        font-size: 4.3vw;
+    }
+}
