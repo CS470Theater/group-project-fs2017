@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -65,6 +66,16 @@ namespace TheaterBooking.Web.Areas.Account.Controllers
 
                 if (!(await _userManager.CreateAsync(user, model.Password)).IsValid(ModelState))
                 {
+                    foreach (var value in ModelState.Values)
+                    {
+                        if (value.Errors.Any(error => error.ErrorMessage.Contains("already taken")))
+                        {
+                            ModelState.Clear();
+                            ModelState.AddModelError("", $"{model.Email} is already taken.");
+                            break;
+                        }
+                    }
+
                     return View(model);
                 }
 
