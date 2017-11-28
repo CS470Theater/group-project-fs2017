@@ -17,49 +17,53 @@
 
         <div class="middleBoxContent">
 
-            @using (Html.BeginForm("Index", "Registration", FormMethod.Post, new { @class = "registerBoxContent" }))
+            @using (Html.BeginForm("Index", "Registration", FormMethod.Post))
             {
 
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "help-block" })
+                @Html.ValidationSummary(true, "", new { @class = "w3-text-red w3-center" })
 
-                <div style="margin-right:40px;">
+                <div id="registerBoxContent">
 
-                    <div class="loginBoxTextField" style="margin-bottom:40px">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "loginBoxInput", required = "required" })
-                        <label class="loginBoxInputLabel">email</label>
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "w3-text-red w3-block" })
+                    <div style="margin-right:40px;">
+
+                        <div class="loginBoxTextField" style="margin-bottom:40px">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "loginBoxInput", required = "required" })
+                            <label class="loginBoxInputLabel">email</label>
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "w3-text-red w3-block" })
+                        </div>
+
+                        <div class="loginBoxTextField" style="margin-bottom:40px">
+                            @Html.PasswordFor(m => m.Password, new { @class = "loginBoxInput", required = "required" })
+                            <label class="loginBoxInputLabel">password</label>
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "w3-text-red w3-block" })
+                        </div>
+
+                        <div class="loginBoxTextField" style="margin-bottom:40px">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "loginBoxInput", required = "required" })
+                            <label class="loginBoxInputLabel">confirm password</label>
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "w3-text-red w3-block" })
+                        </div>
+
                     </div>
 
-                    <div class="loginBoxTextField" style="margin-bottom:40px">
-                        @Html.PasswordFor(m => m.Password, new { @class = "loginBoxInput", required = "required" })
-                        <label class="loginBoxInputLabel">password</label>
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "w3-text-red w3-block" })
+                    <div>
+
+                        <div class="loginBoxTextField" style="margin-bottom:40px">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "loginBoxInput", required = "required" })
+                            <label class="loginBoxInputLabel">first name</label>
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "w3-text-red w3-block" })
+                        </div>
+
+                        <div class="loginBoxTextField">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "loginBoxInput", required = "required" })
+                            <label class="loginBoxInputLabel">last name</label>
+                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "w3-text-red w3-block" })
+                        </div>
+
+                        <button type="submit" class="loginRegisterButton">register</button>
+
                     </div>
-
-                    <div class="loginBoxTextField" style="margin-bottom:40px">
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "loginBoxInput", required = "required" })
-                        <label class="loginBoxInputLabel">confirm password</label>
-                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "w3-text-red w3-block" })
-                    </div>
-
-                </div>
-
-                <div>
-
-                    <div class="loginBoxTextField" style="margin-bottom:40px">
-                        @Html.TextBoxFor(m => m.FirstName, new { @class = "loginBoxInput", required = "required" })
-                        <label class="loginBoxInputLabel">first name</label>
-                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "w3-text-red w3-block" })
-                    </div>
-
-                    <div class="loginBoxTextField">
-                        @Html.TextBoxFor(m => m.LastName, new { @class = "loginBoxInput", required = "required" })
-                        <label class="loginBoxInputLabel">last name</label>
-                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "w3-text-red w3-block" })
-                    </div>
-
-                    <button type="submit" class="loginRegisterButton">register</button>
 
                 </div>
 

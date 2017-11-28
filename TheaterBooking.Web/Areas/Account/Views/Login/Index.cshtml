@@ -20,7 +20,7 @@
             {
 
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "w3-text-red" })
+                @Html.ValidationSummary(true, "", new { @class = "w3-text-red w3-center" })
 
                 <div class="loginBoxTextField">
                     @Html.TextBoxFor(m => m.Email, new { @class = "loginBoxInput", required = "required" })
