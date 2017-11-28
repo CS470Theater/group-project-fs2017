@@ -17,7 +17,7 @@
                 <div class="orderEntryInner">
 
                     <div class="titleAndDate">
-                        <div class="orderEntryTitle">@movie.Movie_Name</div>
+                        <a class="orderEntryTitle" href="@Url.Action("Index", "Preview", new {area = "Movies", movieId = movie.Movie_ID})">@movie.Movie_Name</a>
                         <div class="orderEmphasis">@((showtime.Show_Date + showtime.Show_Time).ToString("f"))</div>
                     </div>
 
